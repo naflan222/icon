@@ -6252,3 +6252,6 @@ html, body { overflow-x: hidden; }
 
 /* ICONIC fix 2026-11-19: style-3 pages have a bare logo img with no class — size it too */
 .menu.-style-3 .menu__wrapper > a img { height: 4em; width: auto; object-fit: contain; display: block; }
+
+/* ICONIC fix 2026-11-19: product tiles show the whole photo, no side cropping */
+.product .product-thumb__image img { object-fit: contain !important; }
