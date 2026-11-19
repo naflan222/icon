@@ -1,4 +1,4 @@
-// Item name: Eliah - Beauty Salon & Cosmetic HTML Template
+// Item name: ICONIC Fragrance - Fragrance Shop HTML Template
 // Creator: Khanh Vu
 // Owned by: Avitex Studio
 // Created at: 01/10/2020
