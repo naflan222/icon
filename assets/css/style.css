@@ -2268,7 +2268,7 @@ ul {
       display: inline-block; }
       .footer-one__header__logo a img {
         height: 100%;
-        width: 100px;
+        width: 80px;
         object-fit: contains; }
     @media only screen and (max-width: 768px) {
       .footer-one__header__logo {
@@ -2488,7 +2488,7 @@ ul {
       display: block; }
       .footer-two__content__logo img {
         height: 100%;
-        width: 12.5em;
+        width: 9em;
         object-fit: contain; }
     .footer-two__content__description {
       color: #111;
@@ -3220,7 +3220,8 @@ ul {
   z-index: 1; }
   .introduction-ten__wrapper {
     display: grid;
-    grid-template-areas: "p1 p2 p4" "p1 p3 p4";
+    grid-template-areas: "p1 p2 p4"
+ "p1 p3 p4";
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(3, 1fr);
     gap: 1.25em; }
@@ -3228,12 +3229,17 @@ ul {
       .introduction-ten__wrapper {
         grid-template-rows: repeat(3, 1fr);
         grid-template-columns: repeat(2, 1fr);
-        grid-template-areas: "p1 p2" "p1 p4" "p3 p4"; } }
+        grid-template-areas: "p1 p2"
+ "p1 p4"
+ "p3 p4"; } }
     @media only screen and (max-width: 768px) {
       .introduction-ten__wrapper {
         grid-template-rows: 1fr;
         grid-template-columns: 1fr;
-        grid-template-areas: "p1" "p2" "p3" "p4"; } }
+        grid-template-areas: "p1"
+ "p2"
+ "p3"
+ "p4"; } }
     .introduction-ten__wrapper__item:nth-child(1) {
       grid-area: p1; }
       .introduction-ten__wrapper__item:nth-child(1) .introduction-ten__banner__content {
@@ -3318,8 +3324,8 @@ ul {
     .menu {
       font-size: 14px; } }
   .menu-logo img {
-    height: 2.5em;
-    width: 7.1875em;
+    height: 1.875em;
+    width: 5.46875em;
     object-fit: cover; }
   .menu-functions {
     display: flex;
@@ -3593,8 +3599,8 @@ ul {
       .menu.-style-2 .menu__wrapper .navigator .menu__wrapper__logo, .menu.-style-6 .menu__wrapper .navigator .menu__wrapper__logo {
         margin-right: auto; }
         .menu.-style-2 .menu__wrapper .navigator .menu__wrapper__logo img, .menu.-style-6 .menu__wrapper .navigator .menu__wrapper__logo img {
-          height: 2.5em;
-          width: 7.1875em;
+          height: 1.875em;
+          width: 5.46875em;
           object-fit: cover; }
       @media only screen and (max-width: 992px) {
         .menu.-style-2 .menu__wrapper .navigator > ul, .menu.-style-6 .menu__wrapper .navigator > ul {
@@ -3612,8 +3618,8 @@ ul {
     background-color: #111;
     padding: 0.9375em 0; }
     .menu.-style-3 .menu-logo img {
-      height: 1.875em;
-      width: 6.25em;
+      height: 1.5em;
+      width: 4.3125em;
       object-fit: contain; }
     .menu.-style-3 .menu__wrapper .navigator > ul > li > a {
       line-height: 2em; }
@@ -3631,8 +3637,8 @@ ul {
     padding: 1.875em 0;
     z-index: 100; }
     .menu.-style-5 .menu__wrapper-logo img {
-      height: 2.5em;
-      width: 7.1875em;
+      height: 1.875em;
+      width: 5.46875em;
       object-fit: cover; }
     .menu.-style-5 .menu__wrapper .btn, .menu.-style-5 .menu__wrapper .blog-sidebar__section.-newsletter .blog-sidebar-newsletter .mc-form button, .blog-sidebar__section.-newsletter .blog-sidebar-newsletter .mc-form .menu.-style-5 .menu__wrapper button, .menu.-style-5 .menu__wrapper .paginator li button, .paginator li .menu.-style-5 .menu__wrapper button, .menu.-style-5 .menu__wrapper .category-two .slick-arrow, .category-two .menu.-style-5 .menu__wrapper .slick-arrow, .menu.-style-5 .menu__wrapper .footer-one__header__newsletter .footer-one-newsletter .mc-form button, .footer-one__header__newsletter .footer-one-newsletter .mc-form .menu.-style-5 .menu__wrapper button, .menu.-style-5 .menu__wrapper .footer-two__content .footer-two-newsletter .mc-form button, .footer-two__content .footer-two-newsletter .mc-form .menu.-style-5 .menu__wrapper button, .menu.-style-5 .menu__wrapper .product-detail__slide-two__small .slick-arrow, .product-detail__slide-two__small .menu.-style-5 .menu__wrapper .slick-arrow, .menu.-style-5 .menu__wrapper .product-tab-slide__content .slick-arrow, .product-tab-slide__content .menu.-style-5 .menu__wrapper .slick-arrow, .menu.-style-5 .menu__wrapper .slider.-style-3 .slider__carousel .slick-arrow, .slider.-style-3 .slider__carousel .menu.-style-5 .menu__wrapper .slick-arrow, .menu.-style-5 .menu__wrapper .testimonial-three .slick-arrow, .testimonial-three .menu.-style-5 .menu__wrapper .slick-arrow {
       height: 3.07692em;
