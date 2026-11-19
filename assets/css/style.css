@@ -3324,7 +3324,7 @@ ul {
     .menu {
       font-size: 14px; } }
   .menu-logo img {
-    height: 3em;
+    height: 5.5em;
     width: auto;
     object-fit: contain; }
   .menu-functions {
@@ -3599,7 +3599,7 @@ ul {
       .menu.-style-2 .menu__wrapper .navigator .menu__wrapper__logo, .menu.-style-6 .menu__wrapper .navigator .menu__wrapper__logo {
         margin-right: auto; }
         .menu.-style-2 .menu__wrapper .navigator .menu__wrapper__logo img, .menu.-style-6 .menu__wrapper .navigator .menu__wrapper__logo img {
-          height: 3em;
+          height: 5.5em;
           width: auto;
           object-fit: contain; }
       @media only screen and (max-width: 992px) {
@@ -3618,7 +3618,7 @@ ul {
     background-color: #111;
     padding: 0.9375em 0; }
     .menu.-style-3 .menu-logo img {
-      height: 2.5em;
+      height: 4.5em;
       width: auto;
       object-fit: contain; }
     .menu.-style-3 .menu__wrapper .navigator > ul > li > a {
@@ -3637,7 +3637,7 @@ ul {
     padding: 1.875em 0;
     z-index: 100; }
     .menu.-style-5 .menu__wrapper-logo img {
-      height: 3em;
+      height: 5.5em;
       width: auto;
       object-fit: contain; }
     .menu.-style-5 .menu__wrapper .btn, .menu.-style-5 .menu__wrapper .blog-sidebar__section.-newsletter .blog-sidebar-newsletter .mc-form button, .blog-sidebar__section.-newsletter .blog-sidebar-newsletter .mc-form .menu.-style-5 .menu__wrapper button, .menu.-style-5 .menu__wrapper .paginator li button, .paginator li .menu.-style-5 .menu__wrapper button, .menu.-style-5 .menu__wrapper .category-two .slick-arrow, .category-two .menu.-style-5 .menu__wrapper .slick-arrow, .menu.-style-5 .menu__wrapper .footer-one__header__newsletter .footer-one-newsletter .mc-form button, .footer-one__header__newsletter .footer-one-newsletter .mc-form .menu.-style-5 .menu__wrapper button, .menu.-style-5 .menu__wrapper .footer-two__content .footer-two-newsletter .mc-form button, .footer-two__content .footer-two-newsletter .mc-form .menu.-style-5 .menu__wrapper button, .menu.-style-5 .menu__wrapper .product-detail__slide-two__small .slick-arrow, .product-detail__slide-two__small .menu.-style-5 .menu__wrapper .slick-arrow, .menu.-style-5 .menu__wrapper .product-tab-slide__content .slick-arrow, .product-tab-slide__content .menu.-style-5 .menu__wrapper .slick-arrow, .menu.-style-5 .menu__wrapper .slider.-style-3 .slider__carousel .slick-arrow, .slider.-style-3 .slider__carousel .menu.-style-5 .menu__wrapper .slick-arrow, .menu.-style-5 .menu__wrapper .testimonial-three .slick-arrow, .testimonial-three .menu.-style-5 .menu__wrapper .slick-arrow {
@@ -6249,3 +6249,6 @@ html, body { overflow-x: hidden; }
   .slider-content__subtitle { font-size: 0.875em; letter-spacing: 0.15em; margin-bottom: 0.625em; }
   .slider-content__description { display: none; }
 }
+
+/* ICONIC fix 2026-11-19: style-3 pages have a bare logo img with no class — size it too */
+.menu.-style-3 .menu__wrapper > a img { height: 4.5em; width: auto; object-fit: contain; display: block; }
