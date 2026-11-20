@@ -6555,19 +6555,22 @@ input:focus, textarea:focus, select:focus { border-color: var(--iconic-gold-soft
   max-width: 100%;
 }
 
-/* Home menu, promotional gallery and service imagery. */
-[data-storefront] .home-navigation { position: relative; }
-[data-storefront] .home-category-toggle {
+/* Storefront navigation, homepage cards and editorial imagery. */
+[data-storefront] .category-navigation { position: relative; }
+[data-storefront] .category-toggle {
   border: 0;
   background: transparent;
   color: #111;
-  padding: .5rem .55rem;
-  line-height: 1;
+  font-size: .9375em;
+  font-weight: 600;
+  padding: 0;
+  min-height: 2.75rem;
   cursor: pointer;
 }
-[data-storefront] .navigator.-white .home-category-toggle { color: #fff; }
-[data-storefront] .home-category-toggle[aria-expanded=true] i { transform: rotate(180deg); }
-[data-storefront] .home-categories {
+[data-storefront] .navigator.-white .category-toggle { color: #fff; font-weight: 400; }
+[data-storefront] .category-toggle i { margin-inline-start: .3em; }
+[data-storefront] .category-toggle[aria-expanded=true] i { transform: rotate(180deg); }
+[data-storefront] .desktop-categories {
   position: absolute;
   z-index: 20;
   top: 100%;
@@ -6582,16 +6585,74 @@ input:focus, textarea:focus, select:focus { border-color: var(--iconic-gold-soft
   border-radius: .4rem;
   box-shadow: 0 .65rem 1.5rem #0005;
 }
-[data-storefront] .home-categories a { display: block; padding: .6rem .75rem; }
-[data-storefront] .home-categories a:is(:hover, :focus-visible) { background: #f7f5f4; }
-[data-storefront] .navigator-mobile .home-category-toggle { min-width: 2.75rem; min-height: 2.75rem; }
-[data-storefront] .navigator-mobile .home-categories {
-  position: static;
-  width: auto;
-  margin: .4rem 0;
-  box-shadow: none;
+[data-storefront] .desktop-categories a {
+  display: block;
+  padding: .6rem .75rem;
+  color: #111;
+  text-decoration: none;
+}
+[data-storefront] .desktop-categories a:is(:hover, :focus-visible) { background: #f7f5f4; }
+@media (min-width: 993px) and (max-width: 1199px) {
+  [data-storefront] .menu__wrapper .navigator > ul > li { margin-inline: .7em; }
+}
+[data-storefront] .mobile-navigation-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #e1e1e1;
+}
+[data-storefront] .mobile-navigation-tabs button {
+  color: #56514f;
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  padding: .75rem .25rem;
+  min-height: 2.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+[data-storefront] .mobile-navigation-tabs button[aria-selected=true] {
+  color: #9b1c26;
+  border-bottom-color: #9b1c26;
+}
+[data-storefront] .navigator-mobile[role=tabpanel] { margin-bottom: 2rem; }
+[data-storefront] .navigator-mobile[role=tabpanel] > ul > li > a {
+  min-height: 2.75rem;
+  padding-block: .35rem;
 }
 [data-storefront] .store-search-result a + a { margin-inline-start: 1.2rem; }
+
+[data-storefront] .home-services .video-frame__poster {
+  aspect-ratio: 16 / 9;
+  height: 100%;
+  overflow: hidden;
+}
+[data-storefront] .home-services .video-frame__poster img {
+  display: block;
+  object-position: center;
+}
+@media (min-width: 769px) {
+  [data-storefront] .home-services { --home-services-photo-width: 60vw; }
+  [data-storefront] .home-services .introduction-two-content__item {
+    max-width: calc((100% + 100vw) / 2 - var(--home-services-photo-width) - 1rem);
+    flex-wrap: nowrap;
+  }
+  [data-storefront] .home-services .introduction-two-content__item span { flex-shrink: 0; }
+  [data-storefront] .home-services .introduction-two-content__item a { line-height: 1.2; }
+}
+@media (min-width: 1401px) {
+  [data-storefront] .home-services { --home-services-photo-width: 888.889px; }
+}
+[data-storefront] .home-fragrance-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 3vw, 2rem);
+}
+@media (min-width: 640px) {
+  [data-storefront] .home-fragrance-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+[data-storefront] .home-fragrance-link { margin-top: clamp(1.5rem, 4vw, 3rem); }
 
 [data-storefront] .about-benefits { margin-bottom: clamp(1rem, 4vw, 3rem); }
 [data-storefront] .about-benefits .benefits { margin-bottom: 0; }

@@ -428,24 +428,69 @@
     if (data) document.querySelector(`[${data.name}="${data.value}"]`)?.focus();
   }
 
+  function toggleCategories(button, open) {
+    button.setAttribute("aria-expanded", String(open));
+    document.getElementById(button.getAttribute("aria-controls")).hidden = !open;
+  }
+
+  function selectMobileTab(selectedTab) {
+    for (const tab of selectedTab.parentElement.querySelectorAll('[role="tab"]')) {
+      const selected = tab === selectedTab;
+      tab.setAttribute("aria-selected", String(selected));
+      tab.tabIndex = selected ? 0 : -1;
+      document.getElementById(tab.getAttribute("aria-controls")).hidden = !selected;
+    }
+  }
+
+  $("#mobile-menu-drawer").on("show.bs.drawer", function () {
+    selectMobileTab(this.querySelector("#drawer-menu-tab"));
+  });
+
   $(document)
     .on("click", function (event) {
-      const clickedToggle = event.target.closest(".home-category-toggle");
-      $(".home-category-toggle").each(function () {
-        if (this !== clickedToggle && this.closest(".home-navigation").contains(event.target)) return;
-        const open = this === clickedToggle && this.getAttribute("aria-expanded") !== "true";
-        this.setAttribute("aria-expanded", String(open));
-        document.getElementById(this.getAttribute("aria-controls")).hidden = !open;
-      });
+      const button = document.querySelector(".category-toggle");
+      if (!button) return;
+      if (button === event.target.closest(".category-toggle")) {
+        toggleCategories(button, button.getAttribute("aria-expanded") === "false");
+      } else if (!event.target.closest(".category-navigation")) {
+        toggleCategories(button, false);
+      }
     })
-    .on("keydown", ".home-navigation", function (event) {
+    .on("focusout", ".category-navigation", function (event) {
+      if (!this.contains(event.relatedTarget)) toggleCategories(this.querySelector(".category-toggle"), false);
+    })
+    .on("keydown", ".category-navigation", function (event) {
       if (event.key !== "Escape") return;
-      const toggle = this.querySelector('.home-category-toggle[aria-expanded="true"]');
+      const toggle = this.querySelector('.category-toggle[aria-expanded="true"]');
       if (!toggle) return;
       event.preventDefault();
       event.stopPropagation();
-      toggle.click();
       toggle.focus();
+      toggleCategories(toggle, false);
+    })
+    .on("click", '.mobile-navigation-tabs [role="tab"]', function () {
+      selectMobileTab(this);
+    })
+    .on("keydown", '.mobile-navigation-tabs [role="tab"]', function (event) {
+      const tabs = [...this.parentElement.querySelectorAll('[role="tab"]')];
+      let next;
+      switch (event.key) {
+        case "ArrowLeft":
+        case "ArrowRight":
+          next = tabs[(tabs.indexOf(this) + (event.key === "ArrowLeft" ? -1 : 1) + tabs.length) % tabs.length];
+          break;
+        case "Home":
+          next = tabs[0];
+          break;
+        case "End":
+          next = tabs.at(-1);
+          break;
+        default:
+          return;
+      }
+      event.preventDefault();
+      selectMobileTab(next);
+      next.focus();
     })
     .on("click", "[data-add], [data-add-cart], [data-decrease-cart], [data-remove-cart]", function () {
       const { add, addCart, decreaseCart, removeCart } = this.dataset;

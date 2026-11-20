@@ -23,9 +23,10 @@
         <div class="menu__wrapper"><a href="index.html"><img src="assets/images/logo-white.png" alt="Logo"/></a>
               <div class="navigator -white">
                 <ul>
-                  <li class="home-navigation">
-                    <a href="index.html">Home</a><button class="home-category-toggle" type="button" aria-label="Home categories" aria-expanded="false" aria-controls="home-categories-desktop"><i class="fas fa-angle-down" aria-hidden="true"></i></button>
-                    <ul class="home-categories" id="home-categories-desktop" hidden>
+                  <li><a href="index.html">Home</a></li>
+                  <li class="category-navigation">
+                    <button class="category-toggle" type="button" aria-expanded="false" aria-controls="desktop-categories">Categories <i class="fas fa-angle-down" aria-hidden="true"></i></button>
+                    <ul class="desktop-categories" id="desktop-categories" hidden>
                       <li><a href="shop-fullwidth-4col.html?category=men">Men’s Perfume</a></li>
                       <li><a href="shop-fullwidth-4col.html?category=women">Women’s Perfume</a></li>
                       <li><a href="shop-fullwidth-4col.html?category=unisex">Unisex</a></li>
@@ -227,24 +228,29 @@
                       <button><img src="assets/images/header/search-icon.png" alt="Search icon"/></button>
                     </form>
                   </div>
-                  <div class="navigator-mobile">
+                  <div class="mobile-navigation-tabs" role="tablist" aria-label="Site navigation">
+                    <button type="button" role="tab" id="drawer-menu-tab" aria-selected="true" aria-controls="drawer-menu-panel">Menu</button>
+                    <button type="button" role="tab" id="drawer-categories-tab" aria-selected="false" aria-controls="drawer-categories-panel" tabindex="-1">Categories</button>
+                  </div>
+                  <div class="navigator-mobile" id="drawer-menu-panel" role="tabpanel" aria-labelledby="drawer-menu-tab">
                     <ul>
-                      <li class="home-navigation">
-                        <a href="index.html">Home</a><button class="home-category-toggle" type="button" aria-label="Home categories" aria-expanded="false" aria-controls="home-categories-mobile"><i class="fas fa-angle-down" aria-hidden="true"></i></button>
-                        <ul class="home-categories" id="home-categories-mobile" hidden>
-                          <li><a href="shop-fullwidth-4col.html?category=men">Men’s Perfume</a></li>
-                          <li><a href="shop-fullwidth-4col.html?category=women">Women’s Perfume</a></li>
-                          <li><a href="shop-fullwidth-4col.html?category=unisex">Unisex</a></li>
-                          <li><a href="shop-fullwidth-4col.html?category=oud">Oud Collection</a></li>
-                          <li><a href="shop-fullwidth-4col.html?category=gifts">Gift Sets</a></li>
-                          <li><a href="shop-fullwidth-4col.html?category=best-sellers">Best Sellers</a></li>
-                        </ul>
-                      </li>
+                      <li><a href="index.html">Home</a></li>
                       <li><a href="services.html">Services</a></li>
                       <li><a href="about.html">About</a></li>
                       <li><a href="shop-fullwidth-4col.html">Shop</a></li>
                       
                       <li><a href="contact.html">Contact</a></li>
+                    </ul>
+
+                  </div>
+                  <div class="navigator-mobile" id="drawer-categories-panel" role="tabpanel" aria-labelledby="drawer-categories-tab" hidden>
+                    <ul>
+                      <li><a href="shop-fullwidth-4col.html?category=men">Men’s Perfume</a></li>
+                      <li><a href="shop-fullwidth-4col.html?category=women">Women’s Perfume</a></li>
+                      <li><a href="shop-fullwidth-4col.html?category=unisex">Unisex</a></li>
+                      <li><a href="shop-fullwidth-4col.html?category=oud">Oud Collection</a></li>
+                      <li><a href="shop-fullwidth-4col.html?category=gifts">Gift Sets</a></li>
+                      <li><a href="shop-fullwidth-4col.html?category=best-sellers">Best Sellers</a></li>
                     </ul>
                   </div>
                   <div class="navigation-sidebar__footer">
