@@ -446,7 +446,39 @@
     selectMobileTab(this.querySelector("#drawer-menu-tab"));
   });
 
+  const banner = $("#homepage-banner");
+  if (banner.length) {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const rotation = $(".home-hero-rotation");
+    let rotating = !reduceMotion;
+    const fadeDuration = reduceMotion ? 0 : 250;
+    // Slick restarts the autoplay timer after the fade.
+    banner.data("slick", { autoplay: rotating, autoplaySpeed: 2000 - fadeDuration, speed: fadeDuration });
+
+    function updateRotationControl() {
+      const action = rotating ? "Pause" : "Play";
+      rotation.text(action).attr("aria-label", `${action} banner rotation`);
+    }
+
+    banner.one("init", () => {
+      updateRotationControl();
+      rotation.prop("hidden", false);
+    });
+    rotation.on("click", () => {
+      rotating = !rotating;
+      banner.slick(rotating ? "slickPlay" : "slickPause");
+      updateRotationControl();
+    });
+  }
+
   $(document)
+    .on("click", ".home-service-option", function () {
+      if (this.getAttribute("aria-pressed") === "true") return;
+      const photo = document.getElementById(this.getAttribute("aria-controls"));
+      photo.alt = this.dataset.imageAlt;
+      photo.src = this.dataset.image;
+      $(this).attr("aria-pressed", "true").siblings("button").attr("aria-pressed", "false");
+    })
     .on("click", function (event) {
       const button = document.querySelector(".category-toggle");
       if (!button) return;

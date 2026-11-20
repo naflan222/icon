@@ -93,7 +93,7 @@
     </div>
     <div id="content">
           <div class="slider -style-1 slider-arrow-middle home-hero">
-            <div class="slider__carousel">
+            <div class="slider__carousel" id="homepage-banner">
               <div class="slider__carousel__item slider-1">
                 <div class="container">
                   <div class="slider-background"><img src="assets/images/slider/iconic/signature.webp" alt="" width="1200" height="1200" decoding="async" fetchpriority="high"/></div>
@@ -131,6 +131,7 @@
                 </div>
               </div>
             </div>
+            <button class="home-hero-rotation" type="button" aria-controls="homepage-banner" hidden>Pause</button>
           </div>
       <div class="introduction-one">
         <div class="container">
@@ -165,14 +166,14 @@
       </div>
       <div class="introduction-two home-services">
         <div class="video-frame">
-          <div class="video-frame__poster"><img src="assets/images/services/home-fragrance.webp" alt="Fragrance display" width="1600" height="900" loading="lazy" decoding="async"/></div>
+          <div class="video-frame__poster"><img id="home-service-image" src="assets/images/services/home-consultation.webp" alt="An ICONIC fragrance bottle and a scent blotter at a consultation" width="800" height="800" loading="lazy" decoding="async"/></div>
         </div>
         <div class="introduction-two-content">
-          <div class="container">
-            <div class="introduction-two-content__item active" data-cover="assets/images/services/home-fragrance.webp"><span>01</span><a href="services.html">Fragrance Consultation</a></div>
-            <div class="introduction-two-content__item" data-cover="assets/images/product/real/hero-gift.jpg"><span>02</span><a href="services.html">Gift Wrapping</a></div>
-            <div class="introduction-two-content__item" data-cover="assets/images/product/real/hero-trio.jpg"><span>03</span><a href="services.html">Islandwide Delivery</a></div>
-            <div class="introduction-two-content__item" data-cover="assets/images/services/home-fragrance.webp"><span>04</span><a href="services.html">Authenticity Guaranteed</a></div>
+          <div class="container" role="group" aria-label="Fragrance services">
+            <button class="home-service-option" type="button" aria-pressed="true" aria-controls="home-service-image" data-image="assets/images/services/home-consultation.webp" data-image-alt="An ICONIC fragrance bottle and a scent blotter at a consultation"><span aria-hidden="true">01</span><span>Fragrance Consultation</span></button>
+            <button class="home-service-option" type="button" aria-pressed="false" aria-controls="home-service-image" data-image="assets/images/services/home-gift-wrapping.webp" data-image-alt="A red ribbon being tied around a fragrance gift box beside an ICONIC bottle"><span aria-hidden="true">02</span><span>Gift Wrapping</span></button>
+            <button class="home-service-option" type="button" aria-pressed="false" aria-controls="home-service-image" data-image="assets/images/services/home-delivery.webp" data-image-alt="An ICONIC fragrance bottle next to a parcel prepared for delivery"><span aria-hidden="true">03</span><span>Islandwide Delivery</span></button>
+            <button class="home-service-option" type="button" aria-pressed="false" aria-controls="home-service-image" data-image="assets/images/services/home-authenticity.webp" data-image-alt="Gloved hands inspecting the cap of an ICONIC fragrance bottle"><span aria-hidden="true">04</span><span>Authenticity Guaranteed</span></button>
           </div>
         </div>
       </div>
