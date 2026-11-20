@@ -25,7 +25,7 @@ page's captions — nothing is invented. All 10ml perfume oils are LKR 2,390.
 | oil-pure-identity.jpg | Pure Identity | 1600x1600 | square | yes | |
 | oil-velvet-bloom.jpg | Velvet Bloom | 853x1280 | portrait | yes | Portrait photo, not the dark graphic; cropped to the bottle |
 | oil-golden-vault-khamrah.jpg | Golden Vault (Khamrah variant) | 1600x1600 | square | gallery | Detail-page gallery only |
-| trio-desert-gold-velvet-bloom-power-wave.jpg | Desert Gold / Velvet Bloom / **Power Wave** | 1600x1600 | square | group | Power Wave has NO single photo; its tile is cropped from this trio (right third, padded with the wall colour). Flag: ask the shop for a single Power Wave photo. |
+| trio-desert-gold-velvet-bloom-power-wave.jpg | Desert Gold / Velvet Bloom / **Power Wave** | 1600x1600 | square | group | The previous tile was cropped from this trio. See the studio set for the standalone photos. |
 
 ## B. Pocket Essence sprays — 10ml (LKR 1,500 each)
 
@@ -87,13 +87,20 @@ page's captions — nothing is invented. All 10ml perfume oils are LKR 2,390.
 Covered above in A and F. Each trio shows three oils; the middle product is
 the one centred in a portrait crop.
 
-## What is NOT in the photos
+## Studio product photos
 
-- No single photo of Power Wave (see A).
+The shop supplied new photos for Midnight Orchid, Power Wave, Pure Identity,
+Urban Drive, Urban Rush, Velvet Bloom, Victory Pulse, and Wild Edge. The
+storefront uses optimized bottle-and-box, bottle, box, and label views from
+`assets/images/product/real/studio/`. Scent notes for these eight oils follow
+the printed packaging.
+
+## What is NOT in the Facebook photos
+
+- A standalone Power Wave photo is now available in the studio set.
 - No customer photos. The Facebook page's customer-chat screenshots were
   deliberately not downloaded (privacy) and are not used anywhere.
-- No video. The site's video section still links to template demo YouTube
-  videos — the shop should supply its own video or have the section removed.
+- No video. The service section uses shop photography and links to the services page.
 
 ## Real offers (from the photos)
 

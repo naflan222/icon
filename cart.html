@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Cart | ICONIC Fragrance</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spartan:wght@300;400;500;700;900&amp;display=swap"/>
@@ -17,41 +17,34 @@
     <link rel="stylesheet" href="assets/css/style.css"/>
     <!--endbuild-->
   </head>
-  <body>
+  <body data-storefront>
     <div class="menu -style-3">
       <div class="container">
         <div class="menu__wrapper"><a href="index.html"><img src="assets/images/logo-white.png" alt="Logo"/></a>
               <div class="navigator -white">
                 <ul>
                   <li class="relative"><a href="index.html">Home<span class="dropable-icon"><i class="fas fa-angle-down"></i></span></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="index.html">For Men</a></li>
-                      <li><a href="homepage2.html">For Women</a></li>
-                      <li><a href="homepage3.html">Unisex</a></li>
-                      <li><a href="homepage4.html">Oud Collection</a></li>
-                      <li><a href="homepage5.html">Gift Sets</a></li>
-                      <li><a href="homepage6.html">Best Sellers</a></li>
-                    </ul>
+                    <ul class="dropdown-menu"><li><a href="index.html">Home</a></li></ul>
                   </li>
                   <li><a href="services.html">Services</a></li>
                   <li><a href="about.html">About</a></li>
                   <li><a href="shop-fullwidth-4col.html">Shop<span class="dropable-icon"><i class="fas fa-angle-down"></i></span></a>
-                    <ul class="dropdown-menu"><li><a href="shop-fullwidth-4col.html">Shop Fullwidth 4 Columns</a></li></ul>
+                    <ul class="dropdown-menu"><li><a href="shop-fullwidth-4col.html">Shop Fragrances</a></li></ul>
                   </li>
                   
                   <li><a href="contact.html">Contact</a></li>
                 </ul>
               </div>
-              <div class="menu-functions -white"><a class="menu-icon -search" href="#"><img src="assets/images/header/search-icon-white.png" alt="Search icon"/></a>
+              <div class="menu-functions -white"><a class="menu-icon -search" href="shop-fullwidth-4col.html" aria-label="Search"><img src="assets/images/header/search-icon-white.png" alt="Search icon"/></a>
                 <div class="search-box">
-                  <form>
-                    <input type="text" placeholder="What are you looking for?" name="search"/>
+                  <form action="shop-fullwidth-4col.html" role="search">
+                    <input type="search" name="q" aria-label="Search fragrances" placeholder="Search fragrances"/>
                     <button><img src="assets/images/header/search-icon.png" alt="Search icon"/></button>
                   </form>
                 </div><a class="menu-icon -wishlist" href="wishlist.html"><img src="assets/images/header/wishlist-icon-white.png" alt="Wishlist icon"/><span class="wishlist__quantity">0</span></a>
-                <div class="menu-cart"><a class="menu-icon -cart" href="#"><img src="assets/images/header/cart-icon-white.png" alt="Wishlist icon"/><span class="cart__quantity">0</span></a>
-                  <h5>Cart:<span>Rs. 30,000</span></h5>
-                </div><a class="menu-icon -navbar" href="#">
+                <div class="menu-cart"><a class="menu-icon -cart" href="cart.html" aria-label="Open cart"><img src="assets/images/header/cart-icon-white.png" alt="Cart"/><span class="cart__quantity">0</span></a>
+                  <h5>Cart:<span>Rs. 0</span></h5>
+                </div><a class="menu-icon -navbar" href="#" aria-label="Open menu">
                   <div class="bar"></div>
                   <div class="bar"></div>
                   <div class="bar"></div></a>
@@ -90,84 +83,15 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>
-                          <div class="cart-product">
-                            <div class="cart-product__image"><img src="assets/images/product/real/oil-golden-vault.jpg" alt="Golden Vault Perfume Oil"/></div>
-                            <div class="cart-product__content">
-                              <h5>Perfume Oil 10ml</h5><a href="product-detail.html">Golden Vault</a>
-                            </div>
-                          </div>
-                        </td>
-                        <td>Golden Vault</td>
-                        <td>
-                              <div class="quantity-controller ">
-                                <div class="quantity-controller__btn -descrease">-</div>
-                                <div class="quantity-controller__number">1</div>
-                                <div class="quantity-controller__btn -increase">+</div>
-                              </div>
-                        </td>
-                        <td>35.00</td>
-                        <td><a href="#"><i class="fal fa-times"></i></a></td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="cart-product">
-                            <div class="cart-product__image"><img src="assets/images/product/real/oil-amber-throne.jpg" alt="Amber Throne Perfume Oil"/></div>
-                            <div class="cart-product__content">
-                              <h5>Perfume Oil 10ml</h5><a href="product-detail.html">Amber Throne</a>
-                            </div>
-                          </div>
-                        </td>
-                        <td>Amber Throne</td>
-                        <td>
-                              <div class="quantity-controller ">
-                                <div class="quantity-controller__btn -descrease">-</div>
-                                <div class="quantity-controller__number">1</div>
-                                <div class="quantity-controller__btn -increase">+</div>
-                              </div>
-                        </td>
-                        <td>38.00</td>
-                        <td><a href="#"><i class="fal fa-times"></i></a></td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="cart-product">
-                            <div class="cart-product__image"><img src="assets/images/product/real/oil-victory-pulse.jpg" alt="Victory Pulse Perfume Oil"/></div>
-                            <div class="cart-product__content">
-                              <h5>Perfume Oil 10ml</h5><a href="product-detail.html">Victory Pulse</a>
-                            </div>
-                          </div>
-                        </td>
-                        <td>Victory Pulse</td>
-                        <td>
-                              <div class="quantity-controller ">
-                                <div class="quantity-controller__btn -descrease">-</div>
-                                <div class="quantity-controller__number">1</div>
-                                <div class="quantity-controller__btn -increase">+</div>
-                              </div>
-                        </td>
-                        <td>35.00</td>
-                        <td><a href="#"><i class="fal fa-times"></i></a></td>
-                      </tr>
                     </tbody>
                   </table>
                 </div>
-                <div class="cart__table__footer"><a href="shop-fullwidth-4col.html"><i class="fal fa-long-arrow-left"></i>Continue Shopping</a><a href="#"><i class="fal fa-trash"></i>Clear Shopping Cart</a></div>
+                <div class="cart__table__footer"><a href="shop-fullwidth-4col.html"><i class="fal fa-long-arrow-left"></i>Continue Shopping</a><a href="#" data-clear-cart><i class="fal fa-trash"></i>Clear Shopping Cart</a></div>
               </div>
               <div class="cart__total">
                 <div class="row">
                   <div class="col-12 col-md-8">
-                    <div class="cart__total__discount">
-                      <p>Enter coupon code. It will be applied at checkout.</p>
-                      <div class="input-validator">
-                        <form action="">
-                          <input type="text" name="discountCode" placeholder="Your code here"/>
-                              <button class="btn -dark">Apply
-                              </button>
-                        </form>
-                      </div>
-                    </div>
+                    <p>Delivery charges are confirmed at checkout or on WhatsApp.</p>
                   </div>
                   <div class="col-12 col-md-4">
                     <div class="cart__total__content">
@@ -175,15 +99,12 @@
                       <table>
                         <tbody>
                           <tr>
-                            <th>Subtotal</th>
-                            <td>Rs. 50,700</td>
+                            <th>Merchandise subtotal</th>
+                            <td>Rs. 0</td>
                           </tr>
-                          <tr>
-                            <th>Total</th>
-                            <td class="final-price">Rs. 50,700</td>
-                          </tr>
+
                         </tbody>
-                      </table><a class="btn -dark" href="/checkout.html">Proceed to checkout</a>
+                      </table><a class="btn -dark" href="checkout.html">Proceed to checkout</a>
                     </div>
                   </div>
                 </div>
@@ -193,31 +114,22 @@
         </div>
       </div>
       <div class="instagram-two">
-        <div class="instagram-two-slider"><a class="slider-item" href="https://www.instagram.com/"><img loading="lazy" src="assets/images/fragrance/real/signature-wild-edge.jpg" alt="Instagram image"/></a><a class="slider-item" href="https://www.instagram.com/"><img loading="lazy" src="assets/images/fragrance/real/oil-velvet-bloom.jpg" alt="Instagram image"/></a><a class="slider-item" href="https://www.instagram.com/"><img loading="lazy" src="assets/images/fragrance/real/trio-urban-drive-pure-identity-victory-pulse.jpg" alt="Instagram image"/></a><a class="slider-item" href="https://www.instagram.com/"><img loading="lazy" src="assets/images/fragrance/real/trio-amber-throne-clean-form-wild-edge.jpg" alt="Instagram image"/></a><a class="slider-item" href="https://www.instagram.com/"><img loading="lazy" src="assets/images/fragrance/real/trio-desert-gold-velvet-bloom-power-wave.jpg" alt="Instagram image"/></a><a class="slider-item" href="https://www.instagram.com/"><img loading="lazy" src="assets/images/fragrance/real/range-all-12-oils.jpg" alt="Instagram image"/></a>
+        <div class="instagram-two-slider"><a class="slider-item" href="https://www.facebook.com/profile.php?id=61587967875237" aria-label="See more from ICONIC Fragrance on Facebook"><img loading="lazy" src="assets/images/fragrance/real/signature-wild-edge.jpg" alt="ICONIC Fragrance collection"/></a><a class="slider-item" href="https://www.facebook.com/profile.php?id=61587967875237" aria-label="See more from ICONIC Fragrance on Facebook"><img loading="lazy" src="assets/images/fragrance/real/oil-velvet-bloom.jpg" alt="ICONIC Fragrance collection"/></a><a class="slider-item" href="https://www.facebook.com/profile.php?id=61587967875237" aria-label="See more from ICONIC Fragrance on Facebook"><img loading="lazy" src="assets/images/fragrance/real/trio-urban-drive-pure-identity-victory-pulse.jpg" alt="ICONIC Fragrance collection"/></a><a class="slider-item" href="https://www.facebook.com/profile.php?id=61587967875237" aria-label="See more from ICONIC Fragrance on Facebook"><img loading="lazy" src="assets/images/fragrance/real/trio-amber-throne-clean-form-wild-edge.jpg" alt="ICONIC Fragrance collection"/></a><a class="slider-item" href="https://www.facebook.com/profile.php?id=61587967875237" aria-label="See more from ICONIC Fragrance on Facebook"><img loading="lazy" src="assets/images/fragrance/real/trio-desert-gold-velvet-bloom-power-wave.jpg" alt="ICONIC Fragrance collection"/></a><a class="slider-item" href="https://www.facebook.com/profile.php?id=61587967875237" aria-label="See more from ICONIC Fragrance on Facebook"><img loading="lazy" src="assets/images/fragrance/real/range-all-12-oils.jpg" alt="ICONIC Fragrance collection"/></a>
         </div>
       </div>
       <div class="footer-one">
         <div class="container">
           <div class="footer-one__header">
             <div class="footer-one__header__logo"><a href="index.html"><img src="assets/images/logo.png" alt="Logo"/></a></div>
-            <div class="footer-one__header__newsletter"><span>Subscribe Newsletter:</span>
-              <div class="footer-one-newsletter">
-                <div class="subscribe-form">
-                  <div class="mc-form">
-                    <input type="text" placeholder="Enter your email"/>
-                          <button class="btn "><i class="fas fa-paper-plane"></i>
-                          </button>
-                  </div>
-                </div>
-              </div>
+            <div class="footer-one__header__newsletter"><a href="https://wa.me/94717300145">Contact us on WhatsApp</a>
             </div>
             <div class="footer-one__header__social">
                     <div class="social-icons -border">
                       <ul>
-                        <li><a href="https://www.facebook.com/" style="'color: undefined'"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="https://twitter.com" style="'color: undefined'"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="https://instagram.com/" style="'color: undefined'"><i class="fab fa-instagram"> </i></a></li>
-                        <li><a href="https://www.youtube.com/" style="'color: undefined'"><i class="fab fa-youtube"></i></a></li>
+                        <li><a href="https://www.facebook.com/profile.php?id=61587967875237" aria-label="ICONIC Fragrance on Facebook"><i class="fab fa-facebook-f"></i></a></li>
+
+
+
                       </ul>
                     </div>
             </div>
@@ -229,8 +141,8 @@
                   <h5 class="footer-title">Contact info</h5>
                   <p>Address:<span>No 70, Beliatta Road, Tangalle</span></p>
                   <p>Phone:<span>0717 300145</span></p>
-                  <p>Email:<span data-iconic-email>iconicfragrance@gmail.com</span></p>
-                  <p>Opentime:<span>8.00am - 11.00.pm</span></p>
+                  <p>WhatsApp: <a href="https://wa.me/94717300145">0717 300145</a></p>
+                  <p>Opening hours:<span>8.00am - 11.00.pm</span></p>
                 </div>
               </div>
               <div class="col-12 col-md-6 col-lg-4">
@@ -239,7 +151,7 @@
                     <div class="col-12 col-sm-6">
                       <h5 class="footer-title">Account</h5>
                       <ul>
-                        <li><a href="#">My account</a></li>
+
                         <li><a href="wishlist.html">Wishlist</a></li>
                         <li><a href="cart.html">Cart</a></li>
                         <li><a href="shop-fullwidth-4col.html">Shop</a></li>
@@ -282,29 +194,16 @@
           </div>
         </div>
       </div>
-      <div class="drawer drawer-right slide" id="cart-drawer" tabindex="-1" role="dialog" aria-labelledby="drawer-demo-title" aria-hidden="true">
+      <div class="drawer drawer-right slide" id="cart-drawer" tabindex="-1" role="dialog" aria-label="Shopping cart" aria-hidden="true">
         <div class="drawer-content drawer-content-scrollable" role="document">
           <div class="drawer-body">
             <div class="cart-sidebar">
               <div class="cart-items__wrapper">
                 <h2>Shopping cart</h2>
-                <div class="cart-item">
-                  <div class="cart-item__image"><img src="assets/images/product/real/oil-golden-vault.jpg" alt="Golden Vault Perfume Oil"/></div>
-                  <div class="cart-item__info"><a href="product-detail.html">Golden Vault</a>
-                    <h5>Rs. 2,390</h5>
-                    <p>Quantity:<span> 1</span></p>
-                  </div><a class="cart-item__remove" href="#"><i class="fal fa-times"></i></a>
-                </div>
-                <div class="cart-item">
-                  <div class="cart-item__image"><img src="assets/images/product/real/oil-amber-throne.jpg" alt="Amber Throne Perfume Oil"/></div>
-                  <div class="cart-item__info"><a href="product-detail.html">Amber Throne</a>
-                    <h5>Rs. 2,390</h5>
-                    <p>Quantity:<span> 1</span></p>
-                  </div><a class="cart-item__remove" href="#"><i class="fal fa-times"></i></a>
-                </div>
+                <div data-cart-items></div>
                 <div class="cart-items__total">
                   <div class="cart-items__total__price">
-                    <h5>Total</h5><span>Rs. 21,900</span>
+                    <h5>Merchandise subtotal</h5><span>Rs. 0</span>
                   </div>
                   <div class="cart-items__total__buttons"><a class="btn -dark" href="cart.html">View cart</a><a class="btn -red" href="checkout.html">Checkout</a>
                   </div>
@@ -314,34 +213,27 @@
           </div>
         </div>
       </div>
-      <div class="drawer drawer-right slide" id="mobile-menu-drawer" tabindex="-1" role="dialog" aria-labelledby="drawer-demo-title" aria-hidden="true">
+      <div class="drawer drawer-right slide" id="mobile-menu-drawer" tabindex="-1" role="dialog" aria-label="Site menu" aria-hidden="true">
         <div class="drawer-content drawer-content-scrollable" role="document">
           <div class="drawer-body">
             <div class="cart-sidebar">
               <div class="cart-items__wrapper">
                 <div class="navigation-sidebar">
                   <div class="search-box">
-                    <form>
-                      <input type="text" placeholder="What are you looking for?"/>
+                    <form action="shop-fullwidth-4col.html" role="search">
+                      <input type="search" name="q" aria-label="Search fragrances" placeholder="Search fragrances"/>
                       <button><img src="assets/images/header/search-icon.png" alt="Search icon"/></button>
                     </form>
                   </div>
                   <div class="navigator-mobile">
                     <ul>
                       <li class="relative"><a class="dropdown-menu-controller" href="#">Home<span class="dropable-icon"><i class="fas fa-angle-down"></i></span></a>
-                        <ul class="dropdown-menu">
-                          <li><a href="index.html">For Men</a></li>
-                          <li><a href="homepage2.html">For Women</a></li>
-                          <li><a href="homepage3.html">Unisex</a></li>
-                          <li><a href="homepage4.html">Oud Collection</a></li>
-                          <li><a href="homepage5.html">Gift Sets</a></li>
-                          <li><a href="homepage6.html">Best Sellers</a></li>
-                        </ul>
+                        <ul class="dropdown-menu"><li><a href="index.html">Home</a></li></ul>
                       </li>
                       <li><a href="services.html">Services</a></li>
                       <li><a href="about.html">About</a></li>
                       <li><a class="dropdown-menu-controller" href="#">Shop<span class="dropable-icon"><i class="fas fa-angle-down"></i></span></a>
-                        <ul class="dropdown-menu"><li><a href="shop-fullwidth-4col.html">Shop Fullwidth 4 Columns</a></li></ul>
+                        <ul class="dropdown-menu"><li><a href="shop-fullwidth-4col.html">Shop Fragrances</a></li></ul>
                       </li>
                       
                       <li><a href="contact.html">Contact</a></li>
@@ -361,10 +253,10 @@
                   </div>
                         <div class="social-icons ">
                           <ul>
-                            <li><a href="https://www.facebook.com/" style="'color: undefined'"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="https://twitter.com" style="'color: undefined'"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="https://instagram.com/" style="'color: undefined'"><i class="fab fa-instagram"> </i></a></li>
-                            <li><a href="https://www.youtube.com/" style="'color: undefined'"><i class="fab fa-youtube"></i></a></li>
+                            <li><a href="https://www.facebook.com/profile.php?id=61587967875237" aria-label="ICONIC Fragrance on Facebook"><i class="fab fa-facebook-f"></i></a></li>
+
+
+
                           </ul>
                         </div>
                 </div>
@@ -373,7 +265,7 @@
           </div>
         </div>
       </div>
-      <div class="modal" id="quick-view-modal">
+      <div class="modal" id="quick-view-modal" role="dialog" aria-modal="true" aria-label="Product quick view">
         <div class="product-quickview">
           <div class="row">
             <div class="col-12 col-md-6">
@@ -431,6 +323,8 @@
     <script src="./assets/js/jquery.modal.min.js"></script>
     <script src="./assets/js/bootstrap-drawer.min.js"></script>
     <script src="./assets/js/jquery.countdown.min.js"></script>
+    <script src="./assets/js/catalog.js"></script>
+    <script src="./assets/js/storefront.js"></script>
     <script src="./assets/js/main.min.js"></script>
     <!--endbuild-->
   </body>

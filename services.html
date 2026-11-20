@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Services | ICONIC Fragrance</title>
   <link rel="stylesheet"
@@ -20,45 +20,38 @@
   <!--endbuild-->
 </head>
 
-<body>
+<body data-storefront>
   <div class="menu -style-3">
     <div class="container">
       <div class="menu__wrapper"><a href="index.html"><img src="assets/images/logo-white.png" alt="Logo" /></a>
         <div class="navigator -white">
           <ul>
             <li class="relative"><a href="index.html">Home<span class="dropable-icon"><i class="fas fa-angle-down"></i></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="index.html">For Men</a></li>
-                <li><a href="homepage2.html">For Women</a></li>
-                <li><a href="homepage3.html">Unisex</a></li>
-                <li><a href="homepage4.html">Oud Collection</a></li>
-                <li><a href="homepage5.html">Gift Sets</a></li>
-                <li><a href="homepage6.html">Best Sellers</a></li>
-              </ul>
+              <ul class="dropdown-menu"><li><a href="index.html">Home</a></li></ul>
             </li>
             <li><a href="services.html">Services</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="shop-fullwidth-4col.html">Shop<span class="dropable-icon"><i
                     class="fas fa-angle-down"></i></span></a>
-              <ul class="dropdown-menu"><li><a href="shop-fullwidth-4col.html">Shop Fullwidth 4 Columns</a></li></ul>
+              <ul class="dropdown-menu"><li><a href="shop-fullwidth-4col.html">Shop Fragrances</a></li></ul>
             </li>
             
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
-        <div class="menu-functions -white"><a class="menu-icon -search" href="#"><img
+        <div class="menu-functions -white"><a class="menu-icon -search" href="shop-fullwidth-4col.html" aria-label="Search"><img
               src="assets/images/header/search-icon-white.png" alt="Search icon" /></a>
           <div class="search-box">
-            <form>
-              <input type="text" placeholder="What are you looking for?" name="search" />
+            <form action="shop-fullwidth-4col.html" role="search">
+              <input type="search" name="q" aria-label="Search fragrances" placeholder="Search fragrances"/>
               <button><img src="assets/images/header/search-icon.png" alt="Search icon" /></button>
             </form>
           </div><a class="menu-icon -wishlist" href="wishlist.html"><img
               src="assets/images/header/wishlist-icon-white.png" alt="Wishlist icon" /><span class="wishlist__quantity">0</span></a>
-          <div class="menu-cart"><a class="menu-icon -cart" href="#"><img src="assets/images/header/cart-icon-white.png"
+          <div class="menu-cart"><a class="menu-icon -cart" href="cart.html" aria-label="Open cart"><img src="assets/images/header/cart-icon-white.png"
                 alt="Wishlist icon" /><span class="cart__quantity">0</span></a>
-            <h5>Cart:<span>Rs. 30,000</span></h5>
-          </div><a class="menu-icon -navbar" href="#">
+            <h5>Cart:<span>Rs. 0</span></h5>
+          </div><a class="menu-icon -navbar" href="#" aria-label="Open menu">
             <div class="bar"></div>
             <div class="bar"></div>
             <div class="bar"></div>
@@ -108,7 +101,7 @@
                   <li><i class="fas fa-check"></i>Find the scent that suits you</li>
                   <li><i class="fas fa-check"></i>Try before you buy</li>
                   <li><i class="fas fa-check"></i>Advice from our fragrance team</li>
-                </ul><a class="btn -white" href="#">Read more</a>
+                </ul><a class="btn -white" href="https://wa.me/94717300145">Ask us on WhatsApp</a>
               </div>
             </div>
           </div>
@@ -142,7 +135,7 @@
                   <li><i class="fas fa-check"></i>Gift boxes from Rs. 6,000</li>
                   <li><i class="fas fa-check"></i>Ready to give</li>
                   <li><i class="fas fa-check"></i>Perfect for birthdays and special occasions</li>
-                </ul><a class="btn -white" href="#">Read more</a>
+                </ul><a class="btn -white" href="https://wa.me/94717300145">Ask us on WhatsApp</a>
               </div>
             </div>
           </div>
@@ -176,7 +169,7 @@
                   <li><i class="fas fa-check"></i>Delivery across Sri Lanka</li>
                   <li><i class="fas fa-check"></i>Order via WhatsApp 0717 300145</li>
                   <li><i class="fas fa-check"></i>Fast, reliable delivery</li>
-                </ul><a class="btn -white" href="#">Read more</a>
+                </ul><a class="btn -white" href="https://wa.me/94717300145">Ask us on WhatsApp</a>
               </div>
             </div>
           </div>
@@ -210,7 +203,7 @@
                   <li><i class="fas fa-check"></i>Sourced for ICONIC Fragrance</li>
                   <li><i class="fas fa-check"></i>Quality guaranteed</li>
                   <li><i class="fas fa-check"></i>Shop with confidence</li>
-                </ul><a class="btn -white" href="#">Read more</a>
+                </ul><a class="btn -white" href="https://wa.me/94717300145">Ask us on WhatsApp</a>
               </div>
             </div>
           </div>
@@ -226,32 +219,10 @@
                 <h2>Visit Our Store</h2><img src="assets/images/introduction/IntroductionOne/content-deco.png"
                   alt="Decoration" />
               </div>
-              <form class="cta__form__detail validated-form" action="#">
-                <div class="input-validator">
-                  <input type="text" placeholder="Your name" name="name" required="required" />
+              <div class="cta__form__detail">
+                  <p>No. 70, Beliatta Road, Tangalle</p>
+                  <a class="btn -light-red" href="https://wa.me/94717300145">Ask about a visit</a>
                 </div>
-                <div class="input-validator">
-                  <input type="text" placeholder="Your phone" name="phone" required="required" />
-                </div>
-                <div class="input-validator">
-                  <select class="customed-select required" name="service">
-                    <option value="" hidden="hidden">Choose a services</option>
-                    <option value="Spa">Spa</option>
-                    <option value="Fragrance">Fragrance</option>
-                    <option value="Nail">Nail</option>
-                  </select>
-                </div>
-                <div class="input-validator">
-                  <select class="customed-select required" name="date">
-                    <option value="" hidden="hidden">Choose a date</option>
-                    <option value="Yesterday">Yesterday</option>
-                    <option value="Today">Today</option>
-                    <option value="Tomorrow">Tomorrow</option>
-                  </select>
-                </div>
-                <button class="btn -light-red">Appointment
-                </button>
-              </form>
             </div>
           </div>
         </div>
@@ -262,49 +233,15 @@
         <div class="footer-one__header">
           <div class="footer-one__header__logo"><a href="index.html"><img src="assets/images/logo.png"
                 alt="Logo" /></a></div>
-          <div class="footer-one__header__newsletter"><span>Subscribe Newsletter:</span>
-            <div class="footer-one-newsletter">
-              <div class="subscribe-form">
-                <div class="mc-form">
-                  <input type="text" placeholder="Enter your email" />
-                  <button class="btn "><i class="fas fa-paper-plane"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
+          <div class="footer-one__header__newsletter"><a href="https://wa.me/94717300145">Contact us on WhatsApp</a>
           </div>
           <div class="footer-one__header__social">
             <div class="social-icons -border">
               <ul>
-                <li><a href="https://www.facebook.com/" style="'color: undefined'"><i class="fab fa-facebook-f"></i></a>
+                <li><a href="https://www.facebook.com/profile.php?id=61587967875237" aria-label="ICONIC Fragrance on Facebook"><i class="fab fa-facebook-f"></i></a>
                 </li>
-                <li><a href="https://twitter.com" style="'color: undefined'"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="https://instagram.com/" style="'color: undefined'"><i class="fab fa-instagram"> </i></a>
-                </li>
-                <li><a href="https://www.youtube.com/" style="'color: undefined'"><i class="fab fa-youtube"></i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="footer-one__body">
-          <div class="row">
-            <div class="col-12 col-md-6 col-lg-4">
-              <div class="footer__section -info">
-                <h5 class="footer-title">Contact info</h5>
-                <p>Address:<span>No 70, Beliatta Road, Tangalle</span></p>
-                <p>Phone:<span>0717 300145</span></p>
-                <p>Email:<span data-iconic-email>iconicfragrance@gmail.com</span></p>
-                <p>Opentime:<span>8.00am - 11.00.pm</span></p>
-              </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-              <div class="footer__section -links">
-                <div class="row">
-                  <div class="col-12 col-sm-6">
-                    <h5 class="footer-title">Account</h5>
-                    <ul>
-                      <li><a href="#">My account</a></li>
+
+
                       <li><a href="wishlist.html">Wishlist</a></li>
                       <li><a href="cart.html">Cart</a></li>
                       <li><a href="shop-fullwidth-4col.html">Shop</a></li>
@@ -348,29 +285,16 @@
       </div>
     </div>
     <div class="drawer drawer-right slide" id="cart-drawer" tabindex="-1" role="dialog"
-      aria-labelledby="drawer-demo-title" aria-hidden="true">
+      aria-label="Shopping cart" aria-hidden="true">
       <div class="drawer-content drawer-content-scrollable" role="document">
         <div class="drawer-body">
           <div class="cart-sidebar">
             <div class="cart-items__wrapper">
               <h2>Shopping cart</h2>
-              <div class="cart-item">
-                <div class="cart-item__image"><img src="assets/images/product/real/oil-golden-vault.jpg" alt="Golden Vault Perfume Oil" /></div>
-                <div class="cart-item__info"><a href="product-detail.html">Golden Vault</a>
-                  <h5>Rs. 2,390</h5>
-                  <p>Quantity:<span> 1</span></p>
-                </div><a class="cart-item__remove" href="#"><i class="fal fa-times"></i></a>
-              </div>
-              <div class="cart-item">
-                <div class="cart-item__image"><img src="assets/images/product/real/oil-amber-throne.jpg" alt="Amber Throne Perfume Oil" /></div>
-                <div class="cart-item__info"><a href="product-detail.html">Amber Throne</a>
-                  <h5>Rs. 2,390</h5>
-                  <p>Quantity:<span> 1</span></p>
-                </div><a class="cart-item__remove" href="#"><i class="fal fa-times"></i></a>
-              </div>
-              <div class="cart-items__total">
+                <div data-cart-items></div>
+                <div class="cart-items__total">
                 <div class="cart-items__total__price">
-                  <h5>Total</h5><span>Rs. 21,900</span>
+                  <h5>Merchandise subtotal</h5><span>Rs. 0</span>
                 </div>
                 <div class="cart-items__total__buttons"><a class="btn -dark" href="cart.html">View cart</a><a
                     class="btn -red" href="checkout.html">Checkout</a>
@@ -382,15 +306,15 @@
       </div>
     </div>
     <div class="drawer drawer-right slide" id="mobile-menu-drawer" tabindex="-1" role="dialog"
-      aria-labelledby="drawer-demo-title" aria-hidden="true">
+      aria-label="Site menu" aria-hidden="true">
       <div class="drawer-content drawer-content-scrollable" role="document">
         <div class="drawer-body">
           <div class="cart-sidebar">
             <div class="cart-items__wrapper">
               <div class="navigation-sidebar">
                 <div class="search-box">
-                  <form>
-                    <input type="text" placeholder="What are you looking for?" />
+                  <form action="shop-fullwidth-4col.html" role="search">
+                    <input type="search" name="q" aria-label="Search fragrances" placeholder="Search fragrances"/>
                     <button><img src="assets/images/header/search-icon.png" alt="Search icon" /></button>
                   </form>
                 </div>
@@ -398,20 +322,13 @@
                   <ul>
                     <li class="relative"><a class="dropdown-menu-controller" href="#">Home<span class="dropable-icon"><i
                             class="fas fa-angle-down"></i></span></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="index.html">For Men</a></li>
-                        <li><a href="homepage2.html">For Women</a></li>
-                        <li><a href="homepage3.html">Unisex</a></li>
-                        <li><a href="homepage4.html">Oud Collection</a></li>
-                        <li><a href="homepage5.html">Gift Sets</a></li>
-                        <li><a href="homepage6.html">Best Sellers</a></li>
-                      </ul>
+                      <ul class="dropdown-menu"><li><a href="index.html">Home</a></li></ul>
                     </li>
                     <li><a href="services.html">Services</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a class="dropdown-menu-controller" href="#">Shop<span class="dropable-icon"><i
                             class="fas fa-angle-down"></i></span></a>
-                      <ul class="dropdown-menu"><li><a href="shop-fullwidth-4col.html">Shop Fullwidth 4 Columns</a></li></ul>
+                      <ul class="dropdown-menu"><li><a href="shop-fullwidth-4col.html">Shop Fragrances</a></li></ul>
                     </li>
                     
                     <li><a href="contact.html">Contact</a></li>
@@ -431,12 +348,11 @@
                 </div>
                 <div class="social-icons ">
                   <ul>
-                    <li><a href="https://www.facebook.com/" style="'color: undefined'"><i
+                    <li><a href="https://www.facebook.com/profile.php?id=61587967875237" aria-label="ICONIC Fragrance on Facebook"><i
                           class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="https://twitter.com" style="'color: undefined'"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="https://instagram.com/" style="'color: undefined'"><i class="fab fa-instagram">
-                        </i></a></li>
-                    <li><a href="https://www.youtube.com/" style="'color: undefined'"><i class="fab fa-youtube"></i></a>
+
+
+                    <li><a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
                     </li>
                   </ul>
                 </div>
@@ -446,7 +362,7 @@
         </div>
       </div>
     </div>
-    <div class="modal" id="quick-view-modal">
+    <div class="modal" id="quick-view-modal" role="dialog" aria-modal="true" aria-label="Product quick view">
       <div class="product-quickview">
         <div class="row">
           <div class="col-12 col-md-6">
@@ -506,7 +422,9 @@
   <script src="./assets/js/jquery.modal.min.js"></script>
   <script src="./assets/js/bootstrap-drawer.min.js"></script>
   <script src="./assets/js/jquery.countdown.min.js"></script>
-  <script src="./assets/js/main.min.js"></script>
+  <script src="./assets/js/catalog.js"></script>
+    <script src="./assets/js/storefront.js"></script>
+    <script src="./assets/js/main.min.js"></script>
   <!--endbuild-->
 </body>
 

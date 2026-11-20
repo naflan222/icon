@@ -497,7 +497,8 @@ const toggleProductView = () => {
 const openSearchBox = () => {
   $(".menu-icon.-search").on("click", function (e) {
     e.preventDefault();
-    $(".menu-functions .search-box").addClass("active");
+    const search = $(this).siblings(".search-box").addClass("active");
+    if (document.body.hasAttribute("data-storefront")) search.find("input").trigger("focus");
     $(document).mouseup(function (e) {
       var container = $(".menu-functions .search-box");
       if (!container.is(e.target) && container.has(e.target).length === 0) {
@@ -513,13 +514,13 @@ $(document).ready(function () {
   validateForm();
   // parallaxHover();
   onHoverChangeVideoSrc();
-  onOpenQuickViewModal();
+  if (!document.body.hasAttribute("data-storefront")) onOpenQuickViewModal();
   onOpenDrawer();
   mobileSidebarMenuHandle();
   countDownDale();
   accordion();
-  toggleProductView();
-  tab();
+  if (!document.body.hasAttribute("data-storefront")) toggleProductView();
+  if (!document.body.hasAttribute("data-storefront")) tab();
   openSearchBox();
 });
 ;
@@ -527,6 +528,7 @@ $(document).ready(function () {
    Unifies the header count/total, the cart drawer and the cart page,
    which previously showed three different static demo totals. */
 (function ($) {
+  if (document.body.hasAttribute("data-storefront")) return;
   var KEY = "iconic_cart_v1";
   function fmt(n) { return "Rs. " + Number(n || 0).toLocaleString("en-US"); }
   function parsePrice(t) { var m = String(t || "").replace(/[^0-9]/g, ""); return parseInt(m, 10) || 0; }
@@ -649,6 +651,7 @@ $(document).ready(function () {
    Mirrors the cart pattern: header badge, wishlist page rows, toggle hearts
    on product cards, list items, the detail page and the quick-view modal. */
 (function ($) {
+  if (document.body.hasAttribute("data-storefront")) return;
   var KEY = "iconic_wishlist_v1";
   function fmt(n) { return "Rs. " + Number(n || 0).toLocaleString("en-US"); }
   function parsePrice(t) { var m = String(t || "").replace(/[^0-9]/g, ""); return parseInt(m, 10) || 0; }
@@ -739,6 +742,7 @@ $(document).ready(function () {
    or a shared link lands on the same page. Cart and wishlist handlers are
    delegated on document, so hiding a page never breaks them. */
 (function ($) {
+  if (document.body.hasAttribute("data-storefront")) return;
   var PER_PAGE = 8;
 
   function initShopPagination() {

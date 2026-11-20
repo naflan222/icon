@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Checkout | ICONIC Fragrance</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spartan:wght@300;400;500;700;900&amp;display=swap"/>
@@ -17,41 +17,34 @@
     <link rel="stylesheet" href="assets/css/style.css"/>
     <!--endbuild-->
   </head>
-  <body>
+  <body data-storefront>
     <div class="menu -style-3">
       <div class="container">
         <div class="menu__wrapper"><a href="index.html"><img src="assets/images/logo-white.png" alt="Logo"/></a>
               <div class="navigator -white">
                 <ul>
                   <li class="relative"><a href="index.html">Home<span class="dropable-icon"><i class="fas fa-angle-down"></i></span></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="index.html">For Men</a></li>
-                      <li><a href="homepage2.html">For Women</a></li>
-                      <li><a href="homepage3.html">Unisex</a></li>
-                      <li><a href="homepage4.html">Oud Collection</a></li>
-                      <li><a href="homepage5.html">Gift Sets</a></li>
-                      <li><a href="homepage6.html">Best Sellers</a></li>
-                    </ul>
+                    <ul class="dropdown-menu"><li><a href="index.html">Home</a></li></ul>
                   </li>
                   <li><a href="services.html">Services</a></li>
                   <li><a href="about.html">About</a></li>
                   <li><a href="shop-fullwidth-4col.html">Shop<span class="dropable-icon"><i class="fas fa-angle-down"></i></span></a>
-                    <ul class="dropdown-menu"><li><a href="shop-fullwidth-4col.html">Shop Fullwidth 4 Columns</a></li></ul>
+                    <ul class="dropdown-menu"><li><a href="shop-fullwidth-4col.html">Shop Fragrances</a></li></ul>
                   </li>
                   
                   <li><a href="contact.html">Contact</a></li>
                 </ul>
               </div>
-              <div class="menu-functions -white"><a class="menu-icon -search" href="#"><img src="assets/images/header/search-icon-white.png" alt="Search icon"/></a>
+              <div class="menu-functions -white"><a class="menu-icon -search" href="shop-fullwidth-4col.html" aria-label="Search"><img src="assets/images/header/search-icon-white.png" alt="Search icon"/></a>
                 <div class="search-box">
-                  <form>
-                    <input type="text" placeholder="What are you looking for?" name="search"/>
+                  <form action="shop-fullwidth-4col.html" role="search">
+                    <input type="search" name="q" aria-label="Search fragrances" placeholder="Search fragrances"/>
                     <button><img src="assets/images/header/search-icon.png" alt="Search icon"/></button>
                   </form>
                 </div><a class="menu-icon -wishlist" href="wishlist.html"><img src="assets/images/header/wishlist-icon-white.png" alt="Wishlist icon"/><span class="wishlist__quantity">0</span></a>
-                <div class="menu-cart"><a class="menu-icon -cart" href="#"><img src="assets/images/header/cart-icon-white.png" alt="Wishlist icon"/><span class="cart__quantity">0</span></a>
-                  <h5>Cart:<span>Rs. 30,000</span></h5>
-                </div><a class="menu-icon -navbar" href="#">
+                <div class="menu-cart"><a class="menu-icon -cart" href="cart.html" aria-label="Open cart"><img src="assets/images/header/cart-icon-white.png" alt="Cart"/><span class="cart__quantity">0</span></a>
+                  <h5>Cart:<span>Rs. 0</span></h5>
+                </div><a class="menu-icon -navbar" href="#" aria-label="Open menu">
                   <div class="bar"></div>
                   <div class="bar"></div>
                   <div class="bar"></div></a>
@@ -70,186 +63,59 @@
         <div class="container">
           <div class="checkout">
             <div class="container">
-              <div class="row">
-                <div class="col-12 col-lg-8">
-                  <form action="">
-                    <div class="checkout__form">
-                      <div class="checkout__form__contact">
-                        <div class="checkout__form__contact__title">
-                          <h5 class="checkout-title">Contact information</h5>
-                          <p> Already have an account?<a href="#">Login</a></p>
-                        </div>
-                        <div class="input-validator">
-                          <input type="text" name="contact" placeholder="Email or mobile phone number"/>
-                        </div>
-                        <label class="checkbox-label" for="subcribe-news">
-                          <input type="checkbox" id="subcribe-news" name="subcribeNews"/>Keep me up to dateon news and exclusive offers
-                        </label>
-                      </div>
-                      <div class="checkout__form__shipping">
-                        <h5 class="checkout-title">Shipping address</h5>
-                        <div class="row">
-                          <div class="col-12 col-md-6">
-                            <div class="input-validator">
-                              <label>First name <span>*</span>
-                                <input type="text" name="firstName"/>
-                              </label>
-                            </div>
-                          </div>
-                          <div class="col-12 col-md-6">
-                            <div class="input-validator">
-                              <label>Last name<span>*</span>
-                                <input type="text" name="lastName"/>
-                              </label>
-                            </div>
-                          </div>
-                          <div class="col-12">
-                            <div class="input-validator">
-                              <label>Country<span>*</span>
-                                <input type="text" name="country"/>
-                              </label>
-                            </div>
-                          </div>
-                          <div class="col-12">
-                            <div class="input-validator">
-                              <label>Address <span>*</span>
-                                <input type="text" name="streetAddress" placeholder="Steet address"/>
-                                <input type="text" name="apartment" placeholder="Apartment, suite, unite ect ( optinal )"/>
-                              </label>
-                            </div>
-                          </div>
-                          <div class="col-12">
-                            <div class="input-validator">
-                              <label>Town/City <span>*</span>
-                                <input type="text" name="town"/>
-                              </label>
-                            </div>
-                          </div>
-                          <div class="col-12">
-                            <div class="input-validator">
-                              <label>Country/State <span>*</span>
-                                <input type="text" name="state"/>
-                              </label>
-                            </div>
-                          </div>
-                          <div class="col-12">
-                            <div class="input-validator">
-                              <label>Postcode/ZIP <span>*</span>
-                                <input type="text" name="zip"/>
-                              </label>
-                            </div>
-                          </div>
-                          <div class="col-12">
-                            <div class="input-validator">
-                              <label>Order note
-                                <input type="text" name="note" placeholder="Note about your order, e.g, special noe for delivery"/>
-                              </label>
-                            </div>
-                          </div>
-                          <label class="checkbox-label" for="save">
-                            <input id="save" type="checkbox" name="saveInfo"/>Save this infomation for next time
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-                <div class="col-12 col-lg-4">
-                  <div class="row">
-                    <div class="col-12 col-md-6 col-lg-12 ml-auto">
-                      <div class="checkout__total">
-                        <h5 class="checkout-title">Your order</h5>
-                        <form class="checkout__total__coupon">
-                          <h5>Coupon code</h5>
-                          <div class="input-validator">
-                            <input type="text" placeholder="Your code here" name="coupon"/>
-                          </div><a class="btn -dark" href="#">apply</a>
-                        </form>
-                        <div class="checkout__total__price">
-                          <h5>Product</h5>
-                          <table>
-                            <colgroup>
-                              <col style="width: 70%"/>
-                              <col style="width: 30%"/>
-                            </colgroup>
-                            <tbody>
-                              <tr>
-                                <td><span>01 x </span>Golden Vault
-                                </td>
-                                <td>Rs. 2,390</td>
-                              </tr>
-                              <tr>
-                                <td><span>01 x </span>Amber Throne
-                                </td>
-                                <td>Rs. 2,390</td>
-                              </tr>
-                              <tr>
-                                <td><span>01 x </span>Victory Pulse
-                                </td>
-                                <td>Rs. 2,390</td>
-                              </tr>
-                            </tbody>
-                          </table>
-                          <div class="checkout__total__price__total-count">
-                            <table>
-                              <tbody>
-                                <tr>
-                                  <td>Subtotal</td>
-                                  <td>Rs. 32,400</td>
-                                </tr>
-                                <tr>
-                                  <td>Total</td>
-                                  <td>Rs. 32,400</td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                          <div class="checkout__total__price__payment">
-                            <label class="checkbox-label" for="payment">
-                              <input id="payment" type="checkbox" name="payment"/>Cheque payment
-                            </label>
-                            <label class="checkbox-label" htmlfor="paypal">
-                              <input id="paypal" type="checkbox" name="paypal"/>PayPal
-                            </label>
-                          </div>
-                        </div>
-                            <button class="btn -red">Place order
-                            </button>
-                      </div>
+              <form id="order-form" class="row" hidden>
+                <div class="col-12 col-lg-7">
+                  <div class="checkout__form">
+                    <div class="checkout__form__shipping">
+                      <h5 class="checkout-title">Delivery details</h5>
+                      <div class="input-validator"><label for="order-name">Full name</label><input id="order-name" name="name" autocomplete="name" required maxlength="100"/></div>
+                      <div class="input-validator"><label for="order-phone">Phone number</label><input id="order-phone" name="phone" type="tel" autocomplete="tel" required maxlength="25"/></div>
+                      <div class="input-validator"><label for="order-address">Delivery address</label><input id="order-address" name="address" autocomplete="street-address" required maxlength="200"/></div>
+                      <div class="input-validator"><label for="order-city">City or town</label><input id="order-city" name="city" autocomplete="address-level2" required maxlength="80"/></div>
                     </div>
                   </div>
                 </div>
-              </div>
+                <div class="col-12 col-lg-5">
+                  <div class="checkout__total">
+                    <div class="checkout__total__price">
+                      <h5>Order summary</h5>
+                      <table><tbody data-order-items></tbody></table>
+                      <div class="checkout__total__price__total-count"><table><tbody data-order-totals></tbody></table></div>
+                      <fieldset class="checkout__total__price__payment">
+                        <legend>Payment method</legend>
+                        <label><input type="radio" name="payment" value="cod" checked/> Cash on delivery</label>
+                        <label data-bank-option hidden><input type="radio" name="payment" value="transfer" disabled/> Online bank transfer</label>
+                      </fieldset>
+                      <div data-bank-details hidden></div>
+                      <p>Send your order in WhatsApp and wait for ICONIC Fragrance to confirm it.</p>
+                    </div>
+                    <button class="btn -red" type="submit">Continue to WhatsApp</button>
+                  </div>
+                </div>
+              </form>
+              <p data-empty-order>Your cart is empty. <a href="shop-fullwidth-4col.html">Continue shopping</a></p>
+              <noscript><p><a href="https://wa.me/94717300145">Order via WhatsApp</a></p></noscript>
             </div>
           </div>
         </div>
       </div>
       <div class="instagram-two">
-        <div class="instagram-two-slider"><a class="slider-item" href="https://www.instagram.com/"><img loading="lazy" src="assets/images/fragrance/real/signature-wild-edge.jpg" alt="Instagram image"/></a><a class="slider-item" href="https://www.instagram.com/"><img loading="lazy" src="assets/images/fragrance/real/oil-velvet-bloom.jpg" alt="Instagram image"/></a><a class="slider-item" href="https://www.instagram.com/"><img loading="lazy" src="assets/images/fragrance/real/trio-urban-drive-pure-identity-victory-pulse.jpg" alt="Instagram image"/></a><a class="slider-item" href="https://www.instagram.com/"><img loading="lazy" src="assets/images/fragrance/real/trio-amber-throne-clean-form-wild-edge.jpg" alt="Instagram image"/></a><a class="slider-item" href="https://www.instagram.com/"><img loading="lazy" src="assets/images/fragrance/real/trio-desert-gold-velvet-bloom-power-wave.jpg" alt="Instagram image"/></a><a class="slider-item" href="https://www.instagram.com/"><img loading="lazy" src="assets/images/fragrance/real/range-all-12-oils.jpg" alt="Instagram image"/></a>
+        <div class="instagram-two-slider"><a class="slider-item" href="https://www.facebook.com/profile.php?id=61587967875237" aria-label="See more from ICONIC Fragrance on Facebook"><img loading="lazy" src="assets/images/fragrance/real/signature-wild-edge.jpg" alt="ICONIC Fragrance collection"/></a><a class="slider-item" href="https://www.facebook.com/profile.php?id=61587967875237" aria-label="See more from ICONIC Fragrance on Facebook"><img loading="lazy" src="assets/images/fragrance/real/oil-velvet-bloom.jpg" alt="ICONIC Fragrance collection"/></a><a class="slider-item" href="https://www.facebook.com/profile.php?id=61587967875237" aria-label="See more from ICONIC Fragrance on Facebook"><img loading="lazy" src="assets/images/fragrance/real/trio-urban-drive-pure-identity-victory-pulse.jpg" alt="ICONIC Fragrance collection"/></a><a class="slider-item" href="https://www.facebook.com/profile.php?id=61587967875237" aria-label="See more from ICONIC Fragrance on Facebook"><img loading="lazy" src="assets/images/fragrance/real/trio-amber-throne-clean-form-wild-edge.jpg" alt="ICONIC Fragrance collection"/></a><a class="slider-item" href="https://www.facebook.com/profile.php?id=61587967875237" aria-label="See more from ICONIC Fragrance on Facebook"><img loading="lazy" src="assets/images/fragrance/real/trio-desert-gold-velvet-bloom-power-wave.jpg" alt="ICONIC Fragrance collection"/></a><a class="slider-item" href="https://www.facebook.com/profile.php?id=61587967875237" aria-label="See more from ICONIC Fragrance on Facebook"><img loading="lazy" src="assets/images/fragrance/real/range-all-12-oils.jpg" alt="ICONIC Fragrance collection"/></a>
         </div>
       </div>
       <div class="footer-one">
         <div class="container">
           <div class="footer-one__header">
             <div class="footer-one__header__logo"><a href="index.html"><img src="assets/images/logo.png" alt="Logo"/></a></div>
-            <div class="footer-one__header__newsletter"><span>Subscribe Newsletter:</span>
-              <div class="footer-one-newsletter">
-                <div class="subscribe-form">
-                  <div class="mc-form">
-                    <input type="text" placeholder="Enter your email"/>
-                          <button class="btn "><i class="fas fa-paper-plane"></i>
-                          </button>
-                  </div>
-                </div>
-              </div>
+            <div class="footer-one__header__newsletter"><a href="https://wa.me/94717300145">Contact us on WhatsApp</a>
             </div>
             <div class="footer-one__header__social">
                     <div class="social-icons -border">
                       <ul>
-                        <li><a href="https://www.facebook.com/" style="'color: undefined'"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="https://twitter.com" style="'color: undefined'"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="https://instagram.com/" style="'color: undefined'"><i class="fab fa-instagram"> </i></a></li>
-                        <li><a href="https://www.youtube.com/" style="'color: undefined'"><i class="fab fa-youtube"></i></a></li>
+                        <li><a href="https://www.facebook.com/profile.php?id=61587967875237" aria-label="ICONIC Fragrance on Facebook"><i class="fab fa-facebook-f"></i></a></li>
+
+
+
                       </ul>
                     </div>
             </div>
@@ -261,8 +127,8 @@
                   <h5 class="footer-title">Contact info</h5>
                   <p>Address:<span>No 70, Beliatta Road, Tangalle</span></p>
                   <p>Phone:<span>0717 300145</span></p>
-                  <p>Email:<span data-iconic-email>iconicfragrance@gmail.com</span></p>
-                  <p>Opentime:<span>8.00am - 11.00.pm</span></p>
+                  <p>WhatsApp: <a href="https://wa.me/94717300145">0717 300145</a></p>
+                  <p>Opening hours:<span>8.00am - 11.00.pm</span></p>
                 </div>
               </div>
               <div class="col-12 col-md-6 col-lg-4">
@@ -271,7 +137,7 @@
                     <div class="col-12 col-sm-6">
                       <h5 class="footer-title">Account</h5>
                       <ul>
-                        <li><a href="#">My account</a></li>
+
                         <li><a href="wishlist.html">Wishlist</a></li>
                         <li><a href="cart.html">Cart</a></li>
                         <li><a href="shop-fullwidth-4col.html">Shop</a></li>
@@ -314,29 +180,16 @@
           </div>
         </div>
       </div>
-      <div class="drawer drawer-right slide" id="cart-drawer" tabindex="-1" role="dialog" aria-labelledby="drawer-demo-title" aria-hidden="true">
+      <div class="drawer drawer-right slide" id="cart-drawer" tabindex="-1" role="dialog" aria-label="Shopping cart" aria-hidden="true">
         <div class="drawer-content drawer-content-scrollable" role="document">
           <div class="drawer-body">
             <div class="cart-sidebar">
               <div class="cart-items__wrapper">
                 <h2>Shopping cart</h2>
-                <div class="cart-item">
-                  <div class="cart-item__image"><img src="assets/images/product/real/oil-golden-vault.jpg" alt="Golden Vault Perfume Oil"/></div>
-                  <div class="cart-item__info"><a href="product-detail.html">Golden Vault</a>
-                    <h5>Rs. 2,390</h5>
-                    <p>Quantity:<span> 1</span></p>
-                  </div><a class="cart-item__remove" href="#"><i class="fal fa-times"></i></a>
-                </div>
-                <div class="cart-item">
-                  <div class="cart-item__image"><img src="assets/images/product/real/oil-amber-throne.jpg" alt="Amber Throne Perfume Oil"/></div>
-                  <div class="cart-item__info"><a href="product-detail.html">Amber Throne</a>
-                    <h5>Rs. 2,390</h5>
-                    <p>Quantity:<span> 1</span></p>
-                  </div><a class="cart-item__remove" href="#"><i class="fal fa-times"></i></a>
-                </div>
+                <div data-cart-items></div>
                 <div class="cart-items__total">
                   <div class="cart-items__total__price">
-                    <h5>Total</h5><span>Rs. 21,900</span>
+                    <h5>Merchandise subtotal</h5><span>Rs. 0</span>
                   </div>
                   <div class="cart-items__total__buttons"><a class="btn -dark" href="cart.html">View cart</a><a class="btn -red" href="checkout.html">Checkout</a>
                   </div>
@@ -346,34 +199,27 @@
           </div>
         </div>
       </div>
-      <div class="drawer drawer-right slide" id="mobile-menu-drawer" tabindex="-1" role="dialog" aria-labelledby="drawer-demo-title" aria-hidden="true">
+      <div class="drawer drawer-right slide" id="mobile-menu-drawer" tabindex="-1" role="dialog" aria-label="Site menu" aria-hidden="true">
         <div class="drawer-content drawer-content-scrollable" role="document">
           <div class="drawer-body">
             <div class="cart-sidebar">
               <div class="cart-items__wrapper">
                 <div class="navigation-sidebar">
                   <div class="search-box">
-                    <form>
-                      <input type="text" placeholder="What are you looking for?"/>
+                    <form action="shop-fullwidth-4col.html" role="search">
+                      <input type="search" name="q" aria-label="Search fragrances" placeholder="Search fragrances"/>
                       <button><img src="assets/images/header/search-icon.png" alt="Search icon"/></button>
                     </form>
                   </div>
                   <div class="navigator-mobile">
                     <ul>
                       <li class="relative"><a class="dropdown-menu-controller" href="#">Home<span class="dropable-icon"><i class="fas fa-angle-down"></i></span></a>
-                        <ul class="dropdown-menu">
-                          <li><a href="index.html">For Men</a></li>
-                          <li><a href="homepage2.html">For Women</a></li>
-                          <li><a href="homepage3.html">Unisex</a></li>
-                          <li><a href="homepage4.html">Oud Collection</a></li>
-                          <li><a href="homepage5.html">Gift Sets</a></li>
-                          <li><a href="homepage6.html">Best Sellers</a></li>
-                        </ul>
+                        <ul class="dropdown-menu"><li><a href="index.html">Home</a></li></ul>
                       </li>
                       <li><a href="services.html">Services</a></li>
                       <li><a href="about.html">About</a></li>
                       <li><a class="dropdown-menu-controller" href="#">Shop<span class="dropable-icon"><i class="fas fa-angle-down"></i></span></a>
-                        <ul class="dropdown-menu"><li><a href="shop-fullwidth-4col.html">Shop Fullwidth 4 Columns</a></li></ul>
+                        <ul class="dropdown-menu"><li><a href="shop-fullwidth-4col.html">Shop Fragrances</a></li></ul>
                       </li>
                       
                       <li><a href="contact.html">Contact</a></li>
@@ -393,10 +239,10 @@
                   </div>
                         <div class="social-icons ">
                           <ul>
-                            <li><a href="https://www.facebook.com/" style="'color: undefined'"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="https://twitter.com" style="'color: undefined'"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="https://instagram.com/" style="'color: undefined'"><i class="fab fa-instagram"> </i></a></li>
-                            <li><a href="https://www.youtube.com/" style="'color: undefined'"><i class="fab fa-youtube"></i></a></li>
+                            <li><a href="https://www.facebook.com/profile.php?id=61587967875237" aria-label="ICONIC Fragrance on Facebook"><i class="fab fa-facebook-f"></i></a></li>
+
+
+
                           </ul>
                         </div>
                 </div>
@@ -405,7 +251,7 @@
           </div>
         </div>
       </div>
-      <div class="modal" id="quick-view-modal">
+      <div class="modal" id="quick-view-modal" role="dialog" aria-modal="true" aria-label="Product quick view">
         <div class="product-quickview">
           <div class="row">
             <div class="col-12 col-md-6">
@@ -463,6 +309,8 @@
     <script src="./assets/js/jquery.modal.min.js"></script>
     <script src="./assets/js/bootstrap-drawer.min.js"></script>
     <script src="./assets/js/jquery.countdown.min.js"></script>
+    <script src="./assets/js/catalog.js"></script>
+    <script src="./assets/js/storefront.js"></script>
     <script src="./assets/js/main.min.js"></script>
     <!--endbuild-->
   </body>
