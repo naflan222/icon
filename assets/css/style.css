@@ -6451,3 +6451,20 @@ input:focus, textarea:focus, select:focus { border-color: var(--iconic-gold-soft
 .paginator { text-align: center; margin: 2.5em 0 0; padding: 0; }
 .paginator .page-item.disabled .page-link { opacity: .35; pointer-events: none; cursor: default; }
 .pg-hidden { display: none !important; }
+
+/* Phase 4 follow-up (2026-11-20): the header wishlist count had no badge
+   styling — it showed as plain text next to the heart, easy to miss. Style it
+   exactly like the cart count: a small number centred over the icon (red on
+   dark headers, dark on light headers). */
+.menu-functions .menu-icon.-wishlist { position: relative; }
+.menu-functions .menu-icon.-wishlist .wishlist__quantity {
+  color: #111;
+  font-size: 0.625em;
+  font-weight: 400;
+  line-height: 1;
+  position: absolute;
+  top: 1.2em;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.menu-functions.-white .menu-icon.-wishlist .wishlist__quantity { color: #f26460; }
