@@ -6623,6 +6623,26 @@ input:focus, textarea:focus, select:focus { border-color: var(--iconic-gold-soft
 }
 [data-storefront] .store-search-result a + a { margin-inline-start: 1.2rem; }
 
+[data-storefront] .introduction-one-image.home-about-artwork {
+  height: auto;
+  overflow: hidden;
+}
+[data-storefront] .home-about-artwork .introduction-one-image__detail {
+  display: grid;
+  /* The column proportions follow the two posters' natural aspect ratios. */
+  grid-template-columns: minmax(0, .8fr) minmax(0, .7466fr);
+  gap: clamp(.35rem, 1.5vw, 1rem);
+}
+[data-storefront] .home-about-artwork .introduction-one-image__detail img {
+  position: relative;
+  inset: auto;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 [data-storefront] .home-services .video-frame__poster {
   aspect-ratio: 16 / 9;
   height: 100%;
