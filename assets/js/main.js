@@ -97,53 +97,17 @@ const slickSlider = () => {
     ],
   });
 
-  //Handle testimonial slide
+  //Handle testimonial slide (reviews only — avatar nav removed)
   (function () {
-    let currentSlideIndex = 0;
-
-    const $tesNav = $(
-      ".testimonial-slider .slide-nav .slide-nav__wrapper"
-    ).slick({
-      slideToShow: 1,
-      rows: 2,
-      slidesPerRow: 4,
-      arrow: false,
-    });
-
     const $tesFor = $(
       ".testimonial-slider .slide-for .slide-for__wrapper"
     ).slick({
-      infinite: false,
+      infinite: true,
       slideToShow: 1,
       arrows: false,
       swipeToSlide: true,
       focusOnSelect: true,
     });
-
-    const checkNavItemActive = (index) => {
-      $(
-        `.testimonial-slider .slide-nav .slide-nav__wrapper .slide-nav__item`
-      ).removeClass("active");
-      $(
-        `.testimonial-slider .slide-nav .slide-nav__wrapper .slide-nav__item[key=${index}]`
-      ).addClass("active");
-    };
-
-    checkNavItemActive(currentSlideIndex);
-
-    $tesFor.on("afterChange", function () {
-      currentSlideIndex = $tesFor.slick("slickCurrentSlide");
-      checkNavItemActive(currentSlideIndex);
-    });
-
-    $(`.testimonial-slider .slide-nav .slide-nav__wrapper .slide-nav__item`).on(
-      "click",
-      function () {
-        let a = $(this).attr("key");
-        console.log(a);
-        $tesFor.slick("slickGoTo", a);
-      }
-    );
 
     $(".testimonial-one__slider-control .next").on("click", function (e) {
       e.preventDefault();
@@ -156,27 +120,6 @@ const slickSlider = () => {
     });
   })();
 
-  $(".team-one-slider").slick({
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    arrows: false,
-    responsive: [
-      {
-        breakpoint: 992,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 576,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
-  });
 
   $(".product-tab-slide .product-tab-slide__content").slick({
     centerMode: true,
