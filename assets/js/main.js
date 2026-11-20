@@ -652,7 +652,7 @@ $(document).ready(function () {
     $("#cart-drawer").drawer();
   });
 
-  $(document).on("click", ".product-detail__content .add-to-cart a", function (e) {
+  $(document).on("click", ".product-detail__content .add-to-cart", function (e) {
     e.preventDefault();
     var name = $.trim($(".product-detail__content__header h2").first().text());
     var price = parsePrice($(".product-price--main").first().text());
