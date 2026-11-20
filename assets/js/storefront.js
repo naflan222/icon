@@ -243,6 +243,11 @@
 
     const url = new URL(location.href);
     const query = (url.searchParams.get("q") || "").trim();
+    const requestedCategory = url.searchParams.get("category");
+    const collections = window.ICONIC_COLLECTIONS;
+    const category = Object.hasOwn(collections, requestedCategory) ? requestedCategory : null;
+    const categoryName = category ? collections[category] : "";
+    const assortment = category ? products.filter((product) => product.collections.includes(category)) : products;
     const sortControl = $('.shop-header select[name="sort"]');
     const sorters = new Map([
       ["az", (a, b) => a.name.localeCompare(b.name)],
@@ -261,10 +266,17 @@
     const viewButtons = $(".shop-header__view__icon a");
     sortControl.prepend('<option value="">Featured</option>').val(sort);
     $(".search-box input[name=q]").val(query);
+    const categoryUrl = category ? `${shopUrl}?category=${category}` : shopUrl;
+    if (category) {
+      $(".breadcrumb h2, .shop-header__page").text(categoryName);
+      $(".breadcrumb li.active").text(categoryName);
+      document.title = `${categoryName} | ICONIC Fragrance`;
+      $('.search-box form[role="search"]').append($("<input>", { type: "hidden", name: "category", value: category }));
+    }
 
     function render() {
       const terms = query.toLowerCase().split(/\s+/).filter(Boolean);
-      const matches = products.filter((product) => {
+      const matches = assortment.filter((product) => {
         const searchable = `${product.name} ${product.category} ${product.size} ${product.size.replace(/ /g, "")} ${product.notes.join(" ")}`.toLowerCase();
         return terms.every((term) => searchable.includes(term));
       });
@@ -287,7 +299,16 @@
       searchStatus.prop("hidden", !query).text(matches.length
         ? `${matches.length} result${matches.length === 1 ? "" : "s"} for “${query}”`
         : `No fragrances match “${query}”.`);
-      if (query) searchStatus.append(" ", $("<a>", { href: shopUrl, text: "Clear search" }));
+      if (query) searchStatus.append(" ", $("<a>", { href: categoryUrl, text: "Clear search" }));
+      if (category && !assortment.length) {
+        const message = encodeURIComponent(`Hi ICONIC Fragrance, what do you currently have in ${categoryName}?`);
+        searchStatus.prop("hidden", false).empty()
+          .append($("<p>", { text: category === "gifts"
+            ? "Gift boxes start at Rs. 6,000. Ask us what’s available."
+            : "Ask us which fragrances are available in this collection." }))
+          .append($("<a>", { href: `https://wa.me/${store.whatsapp}?text=${message}`, text: "Ask on WhatsApp" }))
+          .append($("<a>", { href: shopUrl, text: "View all products" }));
+      }
       pager.prop("hidden", pages < 2).empty();
       addPageButton("Previous", page - 1, page === 1);
       for (let number = 1; number <= pages; number++) {
@@ -408,6 +429,24 @@
   }
 
   $(document)
+    .on("click", function (event) {
+      const clickedToggle = event.target.closest(".home-category-toggle");
+      $(".home-category-toggle").each(function () {
+        if (this !== clickedToggle && this.closest(".home-navigation").contains(event.target)) return;
+        const open = this === clickedToggle && this.getAttribute("aria-expanded") !== "true";
+        this.setAttribute("aria-expanded", String(open));
+        document.getElementById(this.getAttribute("aria-controls")).hidden = !open;
+      });
+    })
+    .on("keydown", ".home-navigation", function (event) {
+      if (event.key !== "Escape") return;
+      const toggle = this.querySelector('.home-category-toggle[aria-expanded="true"]');
+      if (!toggle) return;
+      event.preventDefault();
+      event.stopPropagation();
+      toggle.click();
+      toggle.focus();
+    })
     .on("click", "[data-add], [data-add-cart], [data-decrease-cart], [data-remove-cart]", function () {
       const { add, addCart, decreaseCart, removeCart } = this.dataset;
       const product = byId.get(add || addCart || decreaseCart || removeCart);

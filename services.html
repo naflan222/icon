@@ -26,15 +26,20 @@
       <div class="menu__wrapper"><a href="index.html"><img src="assets/images/logo-white.png" alt="Logo" /></a>
         <div class="navigator -white">
           <ul>
-            <li class="relative"><a href="index.html">Home<span class="dropable-icon"><i class="fas fa-angle-down"></i></span></a>
-              <ul class="dropdown-menu"><li><a href="index.html">Home</a></li></ul>
+            <li class="home-navigation">
+              <a href="index.html">Home</a><button class="home-category-toggle" type="button" aria-label="Home categories" aria-expanded="false" aria-controls="home-categories-desktop"><i class="fas fa-angle-down" aria-hidden="true"></i></button>
+              <ul class="home-categories" id="home-categories-desktop" hidden>
+                <li><a href="shop-fullwidth-4col.html?category=men">Men’s Perfume</a></li>
+                <li><a href="shop-fullwidth-4col.html?category=women">Women’s Perfume</a></li>
+                <li><a href="shop-fullwidth-4col.html?category=unisex">Unisex</a></li>
+                <li><a href="shop-fullwidth-4col.html?category=oud">Oud Collection</a></li>
+                <li><a href="shop-fullwidth-4col.html?category=gifts">Gift Sets</a></li>
+                <li><a href="shop-fullwidth-4col.html?category=best-sellers">Best Sellers</a></li>
+              </ul>
             </li>
             <li><a href="services.html">Services</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="shop-fullwidth-4col.html">Shop<span class="dropable-icon"><i
-                    class="fas fa-angle-down"></i></span></a>
-              <ul class="dropdown-menu"><li><a href="shop-fullwidth-4col.html">Shop Fragrances</a></li></ul>
-            </li>
+            <li><a href="shop-fullwidth-4col.html">Shop</a></li>
             
             <li><a href="contact.html">Contact</a></li>
           </ul>
@@ -44,7 +49,7 @@
           <div class="search-box">
             <form action="shop-fullwidth-4col.html" role="search">
               <input type="search" name="q" aria-label="Search fragrances" placeholder="Search fragrances"/>
-              <button><img src="assets/images/header/search-icon.png" alt="Search icon" /></button>
+              <button><img src="assets/images/header/search-icon-white.png" alt="Search icon" /></button>
             </form>
           </div><a class="menu-icon -wishlist" href="wishlist.html"><img
               src="assets/images/header/wishlist-icon-white.png" alt="Wishlist icon" /><span class="wishlist__quantity">0</span></a>
@@ -75,18 +80,8 @@
         <div class="services__item">
           <div class="row">
             <div class="col-12 col-md-6">
-              <div class="services__item__image">
-                <div class="services__item__image__background"><img
-                    src="assets/images/introduction/IntroductionThree/bg.png" alt="background" /></div>
-                <div class="services__item__image__detail">
-                  <div class="image__item">
-                    <div class="wrapper"><img data-depth="0.3" src="assets/images/contact/1_1.png" alt="image" /></div>
-                  </div>
-                  <div class="image__item">
-                    <div class="wrapper"><img data-depth="0.2" data-invert-x="true" data-invert-y="true"
-                        src="assets/images/contact/1.png" /></div>
-                  </div>
-                </div>
+              <div class="services__item__image service-photo">
+                <img src="assets/images/services/consultation.webp" alt="Fragrance specialist presenting a scent blotter" width="512" height="384"/>
               </div>
             </div>
             <div class="col-12 col-md-6">
@@ -109,18 +104,8 @@
         <div class="services__item -reverse">
           <div class="row">
             <div class="col-12 col-md-6 order-md-2">
-              <div class="services__item__image">
-                <div class="services__item__image__background"><img
-                    src="assets/images/introduction/IntroductionThree/bg.png" alt="background" /></div>
-                <div class="services__item__image__detail">
-                  <div class="image__item">
-                    <div class="wrapper"><img data-depth="0.3" src="assets/images/contact/2_1.png" alt="image" /></div>
-                  </div>
-                  <div class="image__item">
-                    <div class="wrapper"><img data-depth="0.2" data-invert-x="true" data-invert-y="true"
-                        src="assets/images/contact/2.png" /></div>
-                  </div>
-                </div>
+              <div class="services__item__image service-photo">
+                <img src="assets/images/services/gift-wrapping.webp" alt="Hands tying a red ribbon around a black fragrance gift box" width="512" height="384" loading="lazy"/>
               </div>
             </div>
             <div class="col-12 col-md-6 order-md-1">
@@ -143,18 +128,8 @@
         <div class="services__item">
           <div class="row">
             <div class="col-12 col-md-6">
-              <div class="services__item__image">
-                <div class="services__item__image__background"><img
-                    src="assets/images/introduction/IntroductionThree/bg.png" alt="background" /></div>
-                <div class="services__item__image__detail">
-                  <div class="image__item">
-                    <div class="wrapper"><img data-depth="0.3" src="assets/images/contact/3_1.png" alt="image" /></div>
-                  </div>
-                  <div class="image__item">
-                    <div class="wrapper"><img data-depth="0.2" data-invert-x="true" data-invert-y="true"
-                        src="assets/images/contact/3.png" /></div>
-                  </div>
-                </div>
+              <div class="services__item__image service-photo">
+                <img src="assets/images/services/delivery.webp" alt="A fragrance parcel prepared for delivery" width="512" height="384" loading="lazy"/>
               </div>
             </div>
             <div class="col-12 col-md-6">
@@ -177,18 +152,8 @@
         <div class="services__item -reverse">
           <div class="row">
             <div class="col-12 col-md-6 order-md-2">
-              <div class="services__item__image">
-                <div class="services__item__image__background"><img
-                    src="assets/images/introduction/IntroductionThree/bg.png" alt="background" /></div>
-                <div class="services__item__image__detail">
-                  <div class="image__item">
-                    <div class="wrapper"><img data-depth="0.3" src="assets/images/contact/4_1.png" alt="image" /></div>
-                  </div>
-                  <div class="image__item">
-                    <div class="wrapper"><img data-depth="0.2" data-invert-x="true" data-invert-y="true"
-                        src="assets/images/contact/4.png" /></div>
-                  </div>
-                </div>
+              <div class="services__item__image service-photo">
+                <img src="assets/images/services/authenticity.webp" alt="Hands inspecting a perfume bottle and its packaging" width="512" height="384" loading="lazy"/>
               </div>
             </div>
             <div class="col-12 col-md-6 order-md-1">
@@ -231,7 +196,7 @@
     <div class="footer-one">
       <div class="container">
         <div class="footer-one__header">
-          <div class="footer-one__header__logo"><a href="index.html"><img src="assets/images/logo.png"
+          <div class="footer-one__header__logo"><a href="index.html"><img src="assets/images/logo-white.png"
                 alt="Logo" /></a></div>
           <div class="footer-one__header__newsletter"><a href="https://wa.me/94717300145">Contact us on WhatsApp</a>
           </div>
@@ -315,21 +280,25 @@
                 <div class="search-box">
                   <form action="shop-fullwidth-4col.html" role="search">
                     <input type="search" name="q" aria-label="Search fragrances" placeholder="Search fragrances"/>
-                    <button><img src="assets/images/header/search-icon.png" alt="Search icon" /></button>
+                    <button><img src="assets/images/header/search-icon-white.png" alt="Search icon" /></button>
                   </form>
                 </div>
                 <div class="navigator-mobile">
                   <ul>
-                    <li class="relative"><a class="dropdown-menu-controller" href="#">Home<span class="dropable-icon"><i
-                            class="fas fa-angle-down"></i></span></a>
-                      <ul class="dropdown-menu"><li><a href="index.html">Home</a></li></ul>
+                    <li class="home-navigation">
+                      <a href="index.html">Home</a><button class="home-category-toggle" type="button" aria-label="Home categories" aria-expanded="false" aria-controls="home-categories-mobile"><i class="fas fa-angle-down" aria-hidden="true"></i></button>
+                      <ul class="home-categories" id="home-categories-mobile" hidden>
+                        <li><a href="shop-fullwidth-4col.html?category=men">Men’s Perfume</a></li>
+                        <li><a href="shop-fullwidth-4col.html?category=women">Women’s Perfume</a></li>
+                        <li><a href="shop-fullwidth-4col.html?category=unisex">Unisex</a></li>
+                        <li><a href="shop-fullwidth-4col.html?category=oud">Oud Collection</a></li>
+                        <li><a href="shop-fullwidth-4col.html?category=gifts">Gift Sets</a></li>
+                        <li><a href="shop-fullwidth-4col.html?category=best-sellers">Best Sellers</a></li>
+                      </ul>
                     </li>
                     <li><a href="services.html">Services</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a class="dropdown-menu-controller" href="#">Shop<span class="dropable-icon"><i
-                            class="fas fa-angle-down"></i></span></a>
-                      <ul class="dropdown-menu"><li><a href="shop-fullwidth-4col.html">Shop Fragrances</a></li></ul>
-                    </li>
+                    <li><a href="shop-fullwidth-4col.html">Shop</a></li>
                     
                     <li><a href="contact.html">Contact</a></li>
                   </ul>

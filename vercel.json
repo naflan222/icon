@@ -1,0 +1,29 @@
+{
+  "redirects": [
+    {
+      "source": "/homepage2.html",
+      "destination": "/shop-fullwidth-4col.html?category=women",
+      "permanent": true
+    },
+    {
+      "source": "/homepage3.html",
+      "destination": "/shop-fullwidth-4col.html?category=unisex",
+      "permanent": true
+    },
+    {
+      "source": "/homepage4.html",
+      "destination": "/shop-fullwidth-4col.html?category=oud",
+      "permanent": true
+    },
+    {
+      "source": "/homepage5.html",
+      "destination": "/shop-fullwidth-4col.html?category=gifts",
+      "permanent": true
+    },
+    {
+      "source": "/homepage6.html",
+      "destination": "/shop-fullwidth-4col.html?category=best-sellers",
+      "permanent": true
+    }
+  ]
+}

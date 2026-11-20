@@ -6,6 +6,15 @@ window.ICONIC_STORE = {
   bankTransfer: null,
 };
 
+window.ICONIC_COLLECTIONS = {
+  men: "Men’s Perfume",
+  women: "Women’s Perfume",
+  unisex: "Unisex",
+  oud: "Oud Collection",
+  gifts: "Gift Sets",
+  "best-sellers": "Best Sellers",
+};
+
 window.ICONIC_PRODUCTS = (() => {
   const directory = "assets/images/product/real/";
   const oils = [
@@ -39,7 +48,7 @@ window.ICONIC_PRODUCTS = (() => {
     ] },
   ];
 
-  return oils.map(({ name, studio = false, notes = [] }) => {
+  return oils.map(({ name, studio = false, notes = [], collections = [] }) => {
     const id = name.toLowerCase().replace(/ /g, "-");
     const gallery = studio
       ? [
@@ -53,6 +62,7 @@ window.ICONIC_PRODUCTS = (() => {
       id,
       name,
       notes,
+      collections,
       category: "Perfume Oil",
       size: "10 ml",
       price: 2390,
