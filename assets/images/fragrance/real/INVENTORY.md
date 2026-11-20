@@ -93,7 +93,9 @@ The shop supplied new photos for Midnight Orchid, Power Wave, Pure Identity,
 Urban Drive, Urban Rush, Velvet Bloom, Victory Pulse, and Wild Edge. The
 storefront uses optimized bottle-and-box, bottle, box, and label views from
 `assets/images/product/real/studio/`. Scent notes for these eight oils follow
-the printed packaging.
+the printed packaging. The current storefront uses only this studio set for
+product photos. Amber Throne, Clean Form, Desert Gold, and Golden Vault remain
+listed without photos until matching studio images are supplied.
 
 ## What is NOT in the Facebook photos
 

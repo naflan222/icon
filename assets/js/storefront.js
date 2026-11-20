@@ -55,7 +55,7 @@
       name: product.name,
       cat: sizeLabel(product),
       price: product.price,
-      img: product.gallery[0].src,
+      img: product.gallery[0]?.src || "",
       qty,
     }));
     try {
@@ -66,9 +66,14 @@
     renderSavedItems();
   }
 
-  function image(photo, studio = false, eager = false) {
+  function image(photo, eager = false) {
     return `<img src="${photo.src}" alt="${photo.alt}" width="960" height="960"
-      ${studio ? 'class="studio-photo"' : ""} loading="${eager ? "eager" : "lazy"}" decoding="async"/>`;
+      class="studio-photo" loading="${eager ? "eager" : "lazy"}" decoding="async"/>`;
+  }
+
+  function thumbnail(product, className) {
+    const photo = product.gallery[0];
+    return photo ? `<div class="${className}">${image(photo)}</div>` : "";
   }
 
   function productLink(product) {
@@ -103,12 +108,12 @@
 
     $("[data-cart-items]").html([...cart].map(([product, qty]) =>
       `<div class="cart-item">
-        <div class="cart-item__image">${image(product.gallery[0], product.studio)}</div>
+        ${thumbnail(product, "cart-item__image")}
         <div class="cart-item__info">${productLink(product)}<h5>${money(product.price)}</h5><p>Quantity: <span>${qty}</span></p></div>
         ${action("remove-cart", "Remove", "fa-times", product, "cart-item__remove")}
       </div>`).join("") || "<p>Your cart is empty.</p>");
     $(".cart__table__wrapper tbody").html([...cart].map(([product, qty]) =>
-      `<tr><td><div class="cart-product"><div class="cart-product__image">${image(product.gallery[0], product.studio)}</div>
+      `<tr><td><div class="cart-product">${thumbnail(product, "cart-product__image")}
         <div class="cart-product__content"><h5>${sizeLabel(product)}</h5>${productLink(product)}</div></div></td>
         <td>${money(product.price)}</td>
         <td><div class="store-quantity">
@@ -120,7 +125,7 @@
         <td>${action("remove-cart", "Remove", "fa-times", product, "cart-remove")}</td></tr>`
     ).join("") || `<tr><td colspan="5">Your cart is empty. <a href="${shopUrl}">Continue shopping</a></td></tr>`);
     $(".wishlist__table__wrapper tbody").html([...wishlist.keys()].map((product) =>
-      `<tr><td><div class="wishlist-product"><div class="wishlist-product__image">${image(product.gallery[0], product.studio)}</div>
+      `<tr><td><div class="wishlist-product">${thumbnail(product, "wishlist-product__image")}
         <div class="wishlist-product__content"><h5>${sizeLabel(product)}</h5>${productLink(product)}</div></div></td>
         <td>${money(product.price)}</td><td>Confirm with shop</td>
         <td><button type="button" class="btn -dark" data-add="${product.id}">Add to cart</button>
@@ -141,7 +146,7 @@
       card.attr("data-product-id", product.id);
       card.find(".product-name, .product-thumb__image, .product-list-thumb__image").attr("href", productUrl(product));
       const photoLink = card.find(".product-thumb__image, .product-list-thumb__image");
-      photoLink.html(image(product.gallery[0], product.studio));
+      if (product.gallery.length) photoLink.html(image(product.gallery[0]));
       card.find(".product-category").text(sizeLabel(product));
       card.find(".product-price--main").text(money(product.price));
       card.find(".product-description").text(product.notes[0] || "A concentrated fragrance oil in a 10 ml bottle.");
@@ -200,12 +205,16 @@
     }
     document.title = `${product.name} ${product.category} | ICONIC Fragrance`;
     fillProduct(detail.find(".product-detail__content__header").parent(), product);
-    detail.find(".product-detail__slide-two__big").html(product.gallery.map((photo, index) =>
-      `<div class="slider__item">${image(photo, product.studio, index === 0)}</div>`).join(""));
-    const thumbnails = detail.find(".product-detail__slide-two__small");
-    if (product.gallery.length === 1) thumbnails.remove();
-    else thumbnails.html(product.gallery.map((photo) =>
-      `<div class="slider__item">${image(photo, product.studio)}</div>`).join(""));
+    const gallery = detail.find(".product-detail__slide-two");
+    gallery.closest(".col-12").prop("hidden", !product.gallery.length);
+    if (product.gallery.length) {
+      gallery.find(".product-detail__slide-two__big").html(product.gallery.map((photo, index) =>
+        `<div class="slider__item">${image(photo, index === 0)}</div>`).join(""));
+      gallery.find(".product-detail__slide-two__small").html(product.gallery.map((photo) =>
+        `<div class="slider__item">${image(photo)}</div>`).join(""));
+    } else {
+      gallery.remove();
+    }
     $(".product-slide .product-slide__item").has(`[data-product-id="${product.id}"]`).remove();
     $(".tab-switcher").first().addClass("active");
   }
@@ -216,8 +225,9 @@
     fillProduct(modal.find(".product-detail__content__header").parent(), product, true);
     const slider = modal.find(".slider-wrapper");
     if (slider.hasClass("slick-initialized")) slider.slick("unslick");
+    slider.closest(".col-12").prop("hidden", !product.gallery.length);
     slider.html(product.gallery.map((photo, index) =>
-      `<div class="slider-item">${image(photo, product.studio, index === 0)}</div>`).join(""));
+      `<div class="slider-item">${image(photo, index === 0)}</div>`).join(""));
     modal.one($.modal.OPEN, () => {
       if (product.gallery.length > 1) slider.slick({ arrows: true, dots: true, infinite: false });
       modal.find("[data-add]").trigger("focus");
@@ -259,6 +269,7 @@
         return terms.every((term) => searchable.includes(term));
       });
       if (sort) matches.sort(sorters.get(sort));
+      else matches.sort((a, b) => Number(Boolean(b.gallery.length)) - Number(Boolean(a.gallery.length)));
       const pageSize = 8;
       const pages = Math.max(1, Math.ceil(matches.length / pageSize));
       page = Math.min(pages, Math.max(page, 1));

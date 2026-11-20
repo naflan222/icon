@@ -9,10 +9,7 @@ window.ICONIC_STORE = {
 window.ICONIC_PRODUCTS = (() => {
   const directory = "assets/images/product/real/";
   const oils = [
-    { name: "Golden Vault", gallery: [
-      ["oil-golden-vault.jpg", "bottle and box"],
-      ["gallery-golden-vault-trio.jpg", "in the fragrance collection"],
-    ] },
+    { name: "Golden Vault" },
     { name: "Amber Throne" },
     { name: "Victory Pulse", studio: true, notes: [
       "Bergamot, lemon, pineapple", "Lavender, cardamom, marine accord", "Tonka bean, amber, cedarwood",
@@ -42,25 +39,24 @@ window.ICONIC_PRODUCTS = (() => {
     ] },
   ];
 
-  return oils.map(({ name, gallery, studio = false, notes = [] }) => {
+  return oils.map(({ name, studio = false, notes = [] }) => {
     const id = name.toLowerCase().replace(/ /g, "-");
-    if (studio) {
-      gallery = [
+    const gallery = studio
+      ? [
         [`studio/${id}-set.webp`, "bottle and box"],
         [`studio/${id}-bottle.webp`, "bottle"],
         [`studio/${id}-box.webp`, "box"],
         [`studio/${id}-label.webp`, "back of box"],
-      ];
-    }
+      ]
+      : [];
     return {
       id,
       name,
-      studio,
       notes,
       category: "Perfume Oil",
       size: "10 ml",
       price: 2390,
-      gallery: (gallery || [[`oil-${id}.jpg`, "bottle and box"]]).map(([file, view]) => ({
+      gallery: gallery.map(([file, view]) => ({
         src: directory + file,
         alt: `${name} perfume oil, ${view}`,
       })),
