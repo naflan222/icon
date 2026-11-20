@@ -6255,3 +6255,75 @@ html, body { overflow-x: hidden; }
 
 /* ICONIC fix 2026-11-19: product tiles show the whole photo, no side cropping */
 .product .product-thumb__image img { object-fit: contain !important; }
+
+/* ============================================================
+   ICONIC premium upgrade 2026-11-20 — additive layer only.
+   Original design, layout and brand are preserved. Logo size
+   (44px) and earlier fixes are NOT touched by this block.
+   ============================================================ */
+
+/* --- Luxury gold accent used sparingly --- */
+:root { --iconic-gold: #b08d3e; --iconic-gold-soft: #c9a24b; --iconic-cream: #fdfaf3; --iconic-line: #efe6d0; }
+
+/* --- 1. Inner-page banners: light bg now, dark text reads clearly --- */
+.breadcrumb { background-position: center; border-bottom: 1px solid var(--iconic-line); }
+.breadcrumb h2 { letter-spacing: .02em; }
+.breadcrumb ul li { color: #666; }
+.breadcrumb ul li a { color: #666; }
+.breadcrumb ul li.active { color: var(--iconic-gold); }
+
+/* --- 2. Section titles: gold letterspaced eyebrow --- */
+.section-title h5 { letter-spacing: .35em; color: var(--iconic-gold); }
+.section-title h2 { letter-spacing: .01em; }
+
+/* --- 3. Shop: 4 cols desktop, 2 cols tablet + mobile, premium cards --- */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .shop-products__gird .col-md-4 { flex: 0 0 50%; max-width: 50%; }
+}
+.shop-products__gird [class*="col-"] { display: flex; }
+.shop-products__gird .product { flex: 1; background: #fff; border: 1px solid var(--iconic-line); border-radius: 6px; padding: 1em 1em 1.25em; transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease; }
+.shop-products__gird .product:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(17,17,17,.10); border-color: #e0cf9f; }
+.shop-products__gird .product-thumb { margin-bottom: 1.125em; border-radius: 4px; background: var(--iconic-cream); }
+.shop-products__gird .product-thumb__image img { transition: transform .5s ease; }
+.shop-products__gird .product:hover .product-thumb__image img { transform: scale(1.04); }
+.shop-products__gird .product-name { font-size: 1em; letter-spacing: .02em; }
+.shop-products__gird .product-price--main { font-size: 1.0625em; font-weight: 700; color: var(--iconic-gold); }
+.shop-products__gird .product-category { letter-spacing: .08em; }
+.shop-products__gird .product-thumb__actions { background: rgba(255,255,255,.96); box-shadow: 0 6px 20px rgba(17,17,17,.12); border-radius: 999px; }
+
+/* --- 4. Reviews: clean cards, gold stars, ringed avatars --- */
+.testimonial .slide-for__item { background: #fff; border: 1px solid var(--iconic-line); border-radius: 8px; padding: 2.5em 2.5em 2.25em; box-shadow: 0 12px 32px rgba(17,17,17,.07); }
+.testimonial .slide-for__item__content { font-size: 1.0625em; line-height: 1.85em; color: #444; }
+.testimonial .quote-icon { color: var(--iconic-gold-soft); }
+.testimonial .rate i { color: var(--iconic-gold-soft); }
+.testimonial .customer__info h3 { letter-spacing: .02em; }
+.testimonial .customer__info h5 { letter-spacing: .14em; text-transform: uppercase; color: #999; }
+.testimonial .slide-nav__item img { border-radius: 50%; border: 2px solid transparent; transition: border-color .3s ease, transform .3s ease; }
+.testimonial .slide-nav__item.slick-current img, .testimonial .slide-nav__item:hover img { border-color: var(--iconic-gold-soft); transform: scale(1.05); }
+.testimonial .testimonial-one__slider-control a { letter-spacing: .1em; }
+
+/* --- 5. Hero slider text: readable over any photo --- */
+.slider-content__title, .slider-content__subtitle, .slider-content__description { text-shadow: 0 2px 14px rgba(0,0,0,.5); }
+.slider .slick-dots { background: rgba(0,0,0,.35); border-radius: 999px; padding: .4em .9em; bottom: 1.25em; }
+
+/* --- 6. Deal of the week + CTA: light premium backdrops --- */
+.dow-one__content { background-color: var(--iconic-cream); border-radius: 6px; }
+.dow-one__content h5 { letter-spacing: .3em; }
+.cta.-style-1 { background-color: #f7f2e8; }
+.cta__form input, .cta__form textarea { border-radius: 4px; }
+
+/* --- 7. Store section over dark boutique photo: white text stays readable --- */
+.introduction-nine h2, .introduction-nine h5, .introduction-nine p { text-shadow: 0 2px 12px rgba(0,0,0,.55); }
+
+/* --- 8. Buttons: dark buttons turn gold on hover --- */
+.btn.-dark:hover { background-color: var(--iconic-gold); border-color: var(--iconic-gold); }
+input:focus, textarea:focus, select:focus { border-color: var(--iconic-gold-soft) !important; outline: none; }
+
+/* --- 9. Small screens --- */
+@media only screen and (max-width: 576px) {
+  .breadcrumb { padding: 2em 0; margin-bottom: 3.5rem; }
+  .breadcrumb h2 { font-size: 2em; }
+  .section-title h2 { font-size: 1.75em; }
+  .testimonial .slide-for__item { padding: 1.5em; }
+  .shop-products__gird .product { padding: .75em .75em 1em; }
+}
