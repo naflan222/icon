@@ -6351,3 +6351,44 @@ input:focus, textarea:focus, select:focus { border-color: var(--iconic-gold-soft
 
 /* ICONIC phase 2 2026-11-20: tables scroll sideways on small screens instead of overflowing the page */
 .cart__table__wrapper, .wishlist__table__wrapper { overflow-x: auto; }
+
+/* --- Phase 3: genuine Facebook reviews (no invented star ratings) --- */
+.testimonial-avatar-initial {
+  display: flex; align-items: center; justify-content: center;
+  width: 100%; aspect-ratio: 1 / 1; border-radius: 50%;
+  background: var(--iconic-gold, #b08d3e); color: #fff;
+  font-size: 1.75em; font-weight: 600; line-height: 1;
+  transition: 0.2s ease-in-out;
+}
+.testimonial .slide-nav__item:hover .testimonial-avatar-initial,
+.testimonial .slide-nav__item.active .testimonial-avatar-initial {
+  transform: scale(1.08);
+}
+.testimonial-recommends {
+  margin-left: auto; display: inline-flex; align-items: center; gap: 0.4em;
+  background: #1877f2; color: #fff; font-size: 0.75em; font-weight: 600;
+  padding: 0.5em 0.9em; border-radius: 999px; white-space: nowrap;
+}
+.testimonial-source {
+  text-align: center; margin-top: 2em; font-size: 0.9em;
+}
+.testimonial-source a {
+  color: var(--iconic-gold, #b08d3e); text-decoration: underline;
+}
+.testimonial-three .testimonial-source { margin-top: 1.5em; }
+.testimonial-three__item h3 { line-height: 1.5; }
+/* --- Phase 3: deal-of-the-week offer text --- */
+.dow-one__offer, .dow-three__offer {
+  color: #444; font-size: 1em; line-height: 1.6; margin-top: 1em;
+}
+/* --- Phase 3: wishlist heart active state --- */
+.product-wl.active i { color: #f26460; }
+/* --- Phase 3: slider background overlay for white-text readability --- */
+.slider-background { position: relative; }
+.slider-background::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.15) 55%, rgba(0,0,0,0) 100%);
+  pointer-events: none;
+}
+.slider-background img { position: relative; z-index: 0; }
+.slider-content { position: relative; z-index: 2; }
