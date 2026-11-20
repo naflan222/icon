@@ -6336,3 +6336,18 @@ input:focus, textarea:focus, select:focus { border-color: var(--iconic-gold-soft
 @media (hover: none) {
   .product-thumb__actions { opacity: 1 !important; transform: none !important; }
 }
+
+/* ICONIC phase 2 2026-11-20: Deal of the Week countdown expired (template date 2020/10/10).
+   Hidden until a real offer + expiry date are supplied — do not invent one. */
+.dow-one__content__countdown,
+.dow-two__content__countdown,
+.dow-three__content__countdown { display: none !important; }
+
+/* ICONIC phase 2 2026-11-20: honest placeholder card replacing duplicated fake testimonials */
+.testimonial-coming-soon { background: #fff; border: 1px solid #f1ead9; border-radius: 12px; padding: 2.5em 2em; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,.06); max-width: 640px; margin: 0 auto; }
+.testimonial-coming-soon .quote-icon { color: #b08d3e; font-size: 2em; margin-bottom: .5em; }
+.testimonial-coming-soon h3 { font-size: 1.5em; margin-bottom: .5em; }
+.testimonial-coming-soon p { color: #666; margin-bottom: 1.5em; }
+
+/* ICONIC phase 2 2026-11-20: tables scroll sideways on small screens instead of overflowing the page */
+.cart__table__wrapper, .wishlist__table__wrapper { overflow-x: auto; }
