@@ -579,3 +579,110 @@ $(document).ready(function () {
   tab();
   openSearchBox();
 });
+;
+/* ICONIC cart — 2026-11-20: real cart stored in localStorage.
+   Unifies the header count/total, the cart drawer and the cart page,
+   which previously showed three different static demo totals. */
+(function ($) {
+  var KEY = "iconic_cart_v1";
+  function fmt(n) { return "Rs. " + Number(n || 0).toLocaleString("en-US"); }
+  function parsePrice(t) { var m = String(t || "").replace(/[^0-9.]/g, ""); return Math.round(parseFloat(m) || 0); }
+  function load() { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; } }
+  function save(c) { try { localStorage.setItem(KEY, JSON.stringify(c)); } catch (e) {} }
+  function totals(c) { var q = 0, t = 0; c.forEach(function (i) { q += i.qty; t += i.qty * i.price; }); return { qty: q, total: t }; }
+  function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
+
+  function render() {
+    var c = load(), tt = totals(c);
+    $(".cart__quantity").text(tt.qty);
+    $(".menu-cart h5 span").text(fmt(tt.total));
+    var $w = $(".cart-items__wrapper");
+    if ($w.length) {
+      $w.find(".cart-item").remove();
+      if (!c.length) {
+        $w.find(".cart-items__total").before('<div class="cart-item"><div class="cart-item__info"><p>Your cart is empty.</p></div></div>');
+      } else {
+        c.forEach(function (it, idx) {
+          $w.find(".cart-items__total").before(
+            '<div class="cart-item"><div class="cart-item__image"><img src="' + esc(it.img) + '" alt="Product image"/></div>' +
+            '<div class="cart-item__info"><a href="product-detail.html">' + esc(it.name) + '</a><h5>' + fmt(it.price) + '</h5><p>Quantity:<span> ' + it.qty + '</span></p></div>' +
+            '<a class="cart-item__remove" href="#" data-idx="' + idx + '"><i class="fal fa-times"></i></a></div>');
+        });
+      }
+      $w.find(".cart-items__total__price span").text(fmt(tt.total));
+    }
+    var $tb = $(".cart__table__wrapper table tbody");
+    if ($tb.length) {
+      $tb.empty();
+      if (!c.length) {
+        $tb.append('<tr><td colspan="5" style="text-align:center;padding:2.5em 0;">Your cart is empty. <a href="shop-fullwidth-4col.html">Continue shopping</a></td></tr>');
+      } else {
+        c.forEach(function (it, idx) {
+          $tb.append('<tr><td><div class="cart-product"><div class="cart-product__image"><img src="' + esc(it.img) + '" alt="Product image"/></div>' +
+            '<div class="cart-product__content"><h5>ICONIC Fragrance</h5><a href="product-detail.html">' + esc(it.name) + '</a></div></div></td>' +
+            '<td>' + fmt(it.price) + '</td>' +
+            '<td><span class="qty-btn" data-idx="' + idx + '" data-d="-1">-</span><span style="margin:0 .5em;">' + it.qty + '</span><span class="qty-btn" data-idx="' + idx + '" data-d="1">+</span></td>' +
+            '<td>' + fmt(it.price * it.qty) + '</td>' +
+            '<td><a href="#" class="cart-remove" data-idx="' + idx + '"><i class="fal fa-times"></i></a></td></tr>');
+        });
+      }
+      var $ct = $(".cart__total__content table tbody");
+      if ($ct.length) {
+        $ct.find("tr:eq(0) td").text(fmt(tt.total));
+        $ct.find(".final-price").text(fmt(tt.total));
+      }
+    }
+  }
+
+  function add(item) {
+    var c = load(), found = false;
+    c.forEach(function (it) { if (it.name === item.name) { it.qty += item.qty; found = true; } });
+    if (!found) c.push(item);
+    save(c); render();
+  }
+
+  $(document).on("click", ".product-atc", function (e) {
+    e.preventDefault();
+    var $p = $(this).closest(".product");
+    var name = $.trim($p.find(".product-name").text());
+    var price = parsePrice($p.find(".product-price--main").first().text());
+    var img = $p.find(".product-thumb__image img").first().attr("src") || "";
+    if (!name || !price) return;
+    add({ name: name, price: price, img: img, qty: 1 });
+    $("#cart-drawer").drawer();
+  });
+
+  $(document).on("click", ".product-detail__content .add-to-cart a", function (e) {
+    e.preventDefault();
+    var name = $.trim($(".product-detail__content__header h2").first().text());
+    var price = parsePrice($(".product-price--main").first().text());
+    var qty = parseInt($.trim($(".quantity-controller__number").first().text()), 10) || 1;
+    var img = $(".product-detail__slide img").first().attr("src") || "";
+    if (!name || !price) return;
+    add({ name: name, price: price, img: img, qty: qty });
+    $("#cart-drawer").drawer();
+  });
+
+  $(document).on("click", ".cart-item__remove", function (e) {
+    e.preventDefault();
+    var c = load(); c.splice(+$(this).data("idx"), 1); save(c); render();
+  });
+  $(document).on("click", ".cart-remove", function (e) {
+    e.preventDefault();
+    var c = load(); c.splice(+$(this).data("idx"), 1); save(c); render();
+  });
+  $(document).on("click", ".qty-btn", function () {
+    var c = load(), idx = +$(this).data("idx");
+    if (!c[idx]) return;
+    c[idx].qty += +$(this).data("d");
+    if (c[idx].qty <= 0) c.splice(idx, 1);
+    save(c); render();
+  });
+  $(document).on("click", "a", function (e) {
+    if ($.trim($(this).text()).indexOf("Clear Shopping Cart") !== -1) {
+      e.preventDefault(); save([]); render();
+    }
+  });
+
+  $(document).ready(render);
+})(jQuery);

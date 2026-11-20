@@ -6327,3 +6327,7 @@ input:focus, textarea:focus, select:focus { border-color: var(--iconic-gold-soft
   .testimonial .slide-for__item { padding: 1.5em; }
   .shop-products__gird .product { padding: .75em .75em 1em; }
 }
+
+/* ICONIC cart 2026-11-20: quantity buttons on the cart page */
+.qty-btn { cursor: pointer; display: inline-block; min-width: 1.75em; text-align: center; border: 1px solid #ddd; border-radius: 4px; padding: .15em .4em; }
+.qty-btn:hover { border-color: #c9a24b; color: #b08d3e; }
