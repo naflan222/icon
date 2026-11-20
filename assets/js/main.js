@@ -103,7 +103,7 @@ const slickSlider = () => {
       ".testimonial-slider .slide-for .slide-for__wrapper"
     ).slick({
       infinite: true,
-      slideToShow: 1,
+      slidesToShow: 1,
       arrows: false,
       swipeToSlide: true,
       focusOnSelect: true,
