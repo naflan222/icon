@@ -789,3 +789,70 @@ $(document).ready(function () {
 
   $(document).ready(render);
 })(jQuery);
+/* ICONIC shop pagination — Phase 4 (2026-11-20).
+   The template's paginator buttons did nothing (no JS behind them). This gives
+   shop pages real paging: 8 products per page, Prev / page numbers / Next,
+   same page in grid and list views, current page kept in ?page= so a refresh
+   or a shared link lands on the same page. Cart and wishlist handlers are
+   delegated on document, so hiding a page never breaks them. */
+(function ($) {
+  var PER_PAGE = 8;
+
+  function initShopPagination() {
+    var $pg = $(".paginator");
+    if (!$pg.length) return; // not a shop page
+    // Product columns: direct children of the top-level row in each view.
+    // Hiding the column (not the card) keeps the grid aligned, and a CSS
+    // class (not jQuery .toggle) preserves the column's display:flex.
+    var $gridCols = $(".shop-products__gird > .row > div");
+    var $listCols = $(".shop-products__list > .row > div");
+    var total = Math.max($gridCols.length, $listCols.length);
+    if (!total) return;
+    var pages = Math.max(1, Math.ceil(total / PER_PAGE));
+    var params = new URLSearchParams(window.location.search);
+    var page = parseInt(params.get("page"), 10) || 1;
+    page = Math.max(1, Math.min(pages, page));
+
+    function show(p) {
+      page = Math.max(1, Math.min(pages, p));
+      var start = (page - 1) * PER_PAGE, end = start + PER_PAGE;
+      $gridCols.each(function (i) { $(this).toggleClass("pg-hidden", i < start || i >= end); });
+      $listCols.each(function (i) { $(this).toggleClass("pg-hidden", i < start || i >= end); });
+      render();
+    }
+
+    function render() {
+      var html = "";
+      html += '<li class="page-item' + (page === 1 ? " disabled" : "") + '">' +
+        '<button class="page-link" data-page="prev" aria-label="Previous page"><i class="far fa-angle-left"></i></button></li>';
+      for (var i = 1; i <= pages; i++) {
+        html += '<li class="page-item' + (i === page ? " active" : "") + '">' +
+          '<button class="page-link" data-page="' + i + '">' + i + "</button></li>";
+      }
+      html += '<li class="page-item' + (page === pages ? " disabled" : "") + '">' +
+        '<button class="page-link" data-page="next" aria-label="Next page"><i class="far fa-angle-right"></i></button></li>';
+      $pg.html(html);
+    }
+
+    $pg.on("click", ".page-link", function (e) {
+      e.preventDefault();
+      var v = $(this).data("page");
+      if (v === "prev") show(page - 1);
+      else if (v === "next") show(page + 1);
+      else show(parseInt(v, 10));
+      var url = new URL(window.location.href);
+      if (page === 1) url.searchParams.delete("page");
+      else url.searchParams.set("page", page);
+      window.history.replaceState(null, "", url.toString());
+      var $shop = $(".shop-products");
+      if ($shop.length) {
+        var top = $shop.offset().top - 20;
+        if (window.scrollTo) window.scrollTo({ top: top, behavior: "smooth" });
+      }
+    });
+
+    show(page);
+  }
+
+  $(document).ready(initShopPagination);
+})(jQuery);

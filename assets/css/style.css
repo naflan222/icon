@@ -6392,3 +6392,62 @@ input:focus, textarea:focus, select:focus { border-color: var(--iconic-gold-soft
 }
 .slider-background img { position: relative; z-index: 0; }
 .slider-content { position: relative; z-index: 2; }
+
+/* ============ Phase 4 (2026-11-20): mobile shop cards, reviews, services, pagination.
+   Additive fixes only — desktop look and template design unchanged. ============ */
+
+/* 1. Mobile shop cards: the action bar must be a slim strip at the bottom of the
+   photo, not a big white pill covering it. The premium pill style
+   (border-radius:999px) + always-visible-on-touch made it a blob on phones. */
+@media only screen and (max-width: 767px) {
+  .product-thumb__actions {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: rgba(255,255,255,.95);
+    padding: .5em 0;
+  }
+  .product-thumb__actions .product-btn { margin: 0 .25em; }
+  .product-thumb__actions .product-btn .product__actions__item {
+    height: 2.75em;
+    width: 2.75em;
+    line-height: 2.75em;
+    font-size: .875em;
+  }
+}
+
+/* 2. Homepage reviews on mobile: keep the name/date on one row and move the
+   Facebook badge to its own line below, so nothing wraps or squeezes. */
+@media only screen and (max-width: 767px) {
+  .testimonial .slide-for__item { padding: 1.75em 1.25em 1.5em; }
+  .testimonial .slide-for__item__header { flex-wrap: wrap; }
+  .testimonial .slide-for__item__header .customer__info { flex: 1 1 auto; min-width: 0; }
+  .testimonial .slide-for__item__header .customer__info h3 { font-size: 1.125em; }
+  .testimonial-recommends { margin-left: 0; margin-top: .75em; }
+  .testimonial .slide-for__item__content { font-size: 1em; }
+}
+
+/* 3. Homepage services (01-04) on mobile: the video sits in normal flow at full
+   width (16:9) instead of a 70%-wide box anchored to the right; each service
+   item is one row — number fixed at the left, heading wraps beside it. */
+@media only screen and (max-width: 768px) {
+  .introduction-two { padding-top: 2em; }
+  .introduction-two .video-frame {
+    position: relative;
+    right: auto;
+    top: auto;
+    max-width: 100%;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9;
+  }
+  .introduction-two .video-frame__poster { height: 100%; }
+  .introduction-two-content { padding: 2.5em 0 3em; }
+  .introduction-two-content__item { flex-wrap: nowrap; align-items: flex-start; margin-bottom: 2em; }
+  .introduction-two-content__item span { flex-shrink: 0; }
+  .introduction-two-content__item a { flex: 1 1 auto; min-width: 0; font-size: 1.5em; line-height: 1.25; }
+}
+
+/* 4. Pagination: centred, with a disabled state for Prev/Next at the ends. */
+.paginator { text-align: center; margin: 2.5em 0 0; padding: 0; }
+.paginator .page-item.disabled .page-link { opacity: .35; pointer-events: none; cursor: default; }
+.pg-hidden { display: none !important; }
