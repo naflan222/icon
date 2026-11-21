@@ -6867,3 +6867,124 @@ input:focus, textarea:focus, select:focus { border-color: var(--iconic-gold-soft
   [data-storefront] .home-hero .slider-content__subtitle { font-size: .75rem; }
   [data-storefront] .home-hero .slider-content .btn { padding-inline: 1em; }
 }
+
+/* Catalog browsing controls. */
+[data-storefront] .shop-filter-controls {
+  display: grid;
+  gap: 1.125rem;
+  padding-bottom: 1.125rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #e1e1e1;
+}
+[data-storefront] .shop-search { width: min(100%, 33rem); }
+[data-storefront] .shop-search label {
+  display: block;
+  margin-bottom: .4rem;
+  font-weight: 600;
+}
+[data-storefront] .shop-search-field {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: .5rem;
+}
+[data-storefront] .shop-search-field input {
+  min-width: 0;
+  padding: .65rem .8rem;
+  border: 1px solid #d7d2d0;
+  border-radius: .25rem;
+  color: #111;
+  background: #fff;
+}
+[data-storefront] .shop-search-field .btn {
+  min-height: 2.75rem;
+  padding: .5rem 1rem;
+}
+[data-storefront] .shop-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .45rem;
+}
+[data-storefront] .shop-categories a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.5rem;
+  padding: .4rem .7rem;
+  border: 1px solid #e1e1e1;
+  border-radius: .3rem;
+  color: #252120;
+  font-size: .85rem;
+  text-decoration: none;
+}
+[data-storefront] .shop-categories a:is(:hover, [aria-current=page]) {
+  border-color: #9b1c26;
+  background: #fff4f4;
+  color: #9b1c26;
+}
+[data-storefront] .store-search-result { margin-bottom: 1.125rem; }
+[data-storefront] .store-search-result p { margin-bottom: .5rem; }
+
+/* Product information and compact photo navigation. */
+[data-storefront] .product-detail-layout { align-items: start; }
+[data-storefront] .product-detail-gallery[hidden] + .product-detail-info { margin-inline: auto; }
+[data-storefront] .product-detail-info .product-detail__content__header h2 {
+  font-size: clamp(1.45rem, 2.7vw, 2.3rem);
+  line-height: 1.18;
+}
+[data-storefront] .product-detail-info .product-detail__content__header__comment-block {
+  margin-bottom: .85rem;
+}
+[data-storefront] .product-detail-info .product-detail__content__header__comment-block p {
+  line-height: 1.55;
+}
+[data-storefront] .product-detail-info .product-detail__content__header__comment-block p::after {
+  content: none;
+}
+[data-storefront] .product-detail-info .product-detail__controller {
+  justify-content: flex-start;
+  align-items: center;
+  gap: .65rem;
+}
+[data-storefront] .product-detail-info .product-detail__controller .quantity-controller { margin: 0; }
+[data-storefront] .product-detail-info .product-detail__controller button[data-add] {
+  min-height: 2.8rem;
+  height: auto;
+  line-height: 1.25;
+  padding-block: .7rem;
+}
+[data-storefront] .product-detail-info .store-notes {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: .4rem .85rem;
+  margin-top: .85rem;
+  padding: .8rem 1rem;
+  background: #f8f6f5;
+  line-height: 1.5;
+}
+[data-storefront] .product-detail-info .store-notes dd { margin: 0; }
+[data-storefront] .product-detail-gallery .product-detail__slide-two__small .slick-list {
+  margin-inline: 2.5rem;
+}
+[data-storefront] .product-detail-gallery .product-detail__slide-two__small .slider__item {
+  padding: .2rem;
+}
+[data-storefront] .product-detail-gallery .product-detail__slide-two__small img {
+  width: min(100%, 5.5rem);
+  margin-inline: auto;
+  transform: none;
+  border: 1px solid #e1e1e1;
+  border-radius: .25rem;
+}
+[data-storefront] .product-detail-gallery .product-detail__slide-two__small .slick-current img {
+  border: 2px solid #9b1c26;
+}
+[data-storefront] .product-detail-gallery .product-detail__slide-two__small .slick-prev { left: 0; }
+[data-storefront] .product-detail-gallery .product-detail__slide-two__small .slick-next { right: 0; }
+[data-storefront] .related-products .product {
+  width: min(100%, clamp(7.25rem, 38vw, 13rem));
+  margin-inline: auto;
+}
+[data-storefront] .related-products .product-thumb__image img { transform: none; }
+[data-storefront] .spaced-promo-gallery .slider-item {
+  border-inline: .35rem solid #fff;
+  background-clip: padding-box;
+}
