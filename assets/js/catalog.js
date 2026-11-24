@@ -14,10 +14,19 @@ window.ICONIC_COLLECTIONS = {
   gifts: "Gift Sets",
   "best-sellers": "Best Sellers",
   "pocket-perfumes": "Pocket Perfumes",
+  "car-diffusers": "Car Air Diffusers",
+  "reed-diffusers": "Reed Diffusers",
+  "perfume-30ml": "30 ml Perfumes",
 };
 
 window.ICONIC_PRODUCTS = (() => {
   const directory = "assets/images/product/real/";
+  const portrait = (folder, id, alt) => [{
+    src: `${directory}${folder}/${id}.webp`,
+    alt,
+    width: 1122,
+    height: 1402,
+  }];
   const oils = [
     { name: "Golden Vault" },
     { name: "Amber Throne" },
@@ -88,13 +97,62 @@ window.ICONIC_PRODUCTS = (() => {
     description: "A 10 ml eau de parfum spray in a pocket-sized bottle.",
     notes: [],
     collections: ["pocket-perfumes"],
-    gallery: [{
-      src: `${directory}pocket/${product.id}.webp`,
-      alt: `${product.name}, ICONIC 10 ml pocket perfume bottle`,
-      width: 1122,
-      height: 1402,
-    }],
+    gallery: portrait("pocket", product.id, `${product.name}, ICONIC 10 ml pocket perfume bottle`),
   }));
 
-  return [...perfumeOils, ...pocketPerfumes];
+  const carDiffusers = [
+    { slug: "mint-fresh", name: "Mint Fresh" },
+    { slug: "lush", name: "Lush", size: "6 ml" },
+    { slug: "cinnamon-apple", name: "Cinnamon Apple" },
+    { slug: "royal-jasmine", name: "Royal Jasmine" },
+  ].map(({ slug, name, size = "" }) => ({
+    id: `car-diffuser-${slug}`,
+    name,
+    category: "Car Air Diffuser",
+    size,
+    price: 990,
+    description: `${name} car air diffuser in a glass bottle with a wooden cap and hanging cord.`,
+    notes: [],
+    collections: ["car-diffusers"],
+    gallery: portrait("car-diffusers", slug, `${name} ICONIC car air diffuser with a hanging cord`),
+  }));
+
+  const reedDiffusers = [
+    { slug: "juicy-fruit", name: "Juicy Fruit" },
+    { slug: "mint-fresh", name: "Mint Fresh" },
+    { slug: "cinnamon-apple", name: "Cinnamon Apple" },
+    { slug: "royal-jasmine", name: "Royal Jasmine" },
+    { slug: "lush", name: "Lush" },
+  ].map(({ slug, name }) => ({
+    id: `reed-diffuser-${slug}`,
+    name,
+    category: "Reed Diffuser",
+    size: "50 ml",
+    price: 2390,
+    description: `${name} reed diffuser in a 50 ml square glass bottle with a gold-coloured cap.`,
+    notes: [],
+    collections: ["reed-diffusers"],
+    gallery: portrait("reed-diffusers", slug, `${name} ICONIC 50 ml reed diffuser bottle`),
+  }));
+
+  const perfumes30ml = [
+    { slug: "the-most-wanted", name: "The Most Wanted by Azzaro" },
+    { slug: "invictus-aqua", name: "Invictus Aqua by Paco Rabanne" },
+    { slug: "1-million", name: "1 Million by Paco Rabanne" },
+    { slug: "9-by-afnan", name: "9 by Afnan" },
+    { slug: "kirke", name: "Kirké by Tiziana Terenzi" },
+    { slug: "bombshell", name: "Bombshell by Victoria’s Secret" },
+  ].map(({ slug, name }) => ({
+    id: `${slug}-30ml`,
+    name,
+    category: "Eau de Parfum",
+    size: "30 ml",
+    price: 2990,
+    description: "A 30 ml eau de parfum spray in an ICONIC glass bottle with a gold-coloured cap.",
+    notes: [],
+    collections: ["perfume-30ml"],
+    gallery: portrait("perfume-30ml", slug, `${name}, ICONIC 30 ml eau de parfum bottle`),
+  }));
+
+  return [...perfumeOils, ...pocketPerfumes, ...carDiffusers, ...reedDiffusers, ...perfumes30ml];
 })();

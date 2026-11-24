@@ -3,13 +3,17 @@
   const products = window.ICONIC_PRODUCTS;
   const store = window.ICONIC_STORE;
   const byId = new Map(products.map((product) => [product.id, product]));
-  const byName = new Map(products.map((product) => [product.name.toLowerCase(), product]));
+  const byName = new Map();
+  for (const product of products) {
+    const name = product.name.toLowerCase();
+    if (!byName.has(name)) byName.set(name, product);
+  }
   const cartKey = "iconic_cart_v1";
   const wishlistKey = "iconic_wishlist_v1";
   const shopUrl = "shop-fullwidth-4col.html";
   const money = (amount) => `Rs. ${amount.toLocaleString("en-LK")}`;
   const productUrl = (product) => `product-detail.html?product=${product.id}`;
-  const sizeLabel = (product) => `${product.category} · ${product.size}`;
+  const sizeLabel = ({ category, size }) => size ? `${category} · ${size}` : category;
   const normalizeSearch = (text) => text.toLowerCase().normalize("NFD").replace(/\p{M}/gu, "").replace(/’/g, "'");
   const subtotal = (items) => [...items].reduce((sum, [product, qty]) => sum + product.price * qty, 0);
   const deliveryFee = Number.isSafeInteger(store.deliveryFee) && store.deliveryFee >= 0 ? store.deliveryFee : null;
@@ -82,6 +86,13 @@
     return `<a href="${productUrl(product)}">${product.name}</a>`;
   }
 
+  function cardProduct(card) {
+    const link = card.find(".product-name").get(0);
+    if (!link) return undefined;
+    const id = new URL(link.href).searchParams.get("product");
+    return byId.get(id) || byName.get(link.textContent.trim().toLowerCase());
+  }
+
   function action(type, label, icon, product, extra = "") {
     return `<button type="button" class="store-action ${extra}" data-${type}="${product.id}"
       aria-label="${label} ${product.name}" title="${label} ${product.name}">
@@ -143,12 +154,12 @@
   function addMissingShopCards() {
     $(".shop-products__gird > .row, .shop-products__list > .row").each(function () {
       const row = $(this);
-      const listed = new Set(row.find(".product-name").map(function () {
-        return this.textContent.trim().toLowerCase();
+      const listed = new Set(row.find(".product, .product-list").map(function () {
+        return cardProduct($(this))?.id;
       }).get());
       const list = row.parent().hasClass("shop-products__list");
       for (const product of products) {
-        if (listed.has(product.name.toLowerCase())) continue;
+        if (listed.has(product.id)) continue;
         const photo = product.gallery[0];
         const imageClass = list ? "product-list-thumb__image" : "product-thumb__image";
         const photoLink = photo ? `<a class="${imageClass}" href="${productUrl(product)}"></a>` : "";
@@ -181,7 +192,7 @@
   function decorateCards() {
     $(".product, .product-list").each(function () {
       const card = $(this);
-      const product = byName.get(card.find(".product-name").first().text().trim().toLowerCase());
+      const product = cardProduct(card);
       if (!product) return;
       card.attr("data-product-id", product.id);
       card.find(".product-name, .product-thumb__image, .product-list-thumb__image").attr("href", productUrl(product));
@@ -243,7 +254,7 @@
       detail.html(`<h1>Product unavailable</h1><p><a href="${shopUrl}">Browse our fragrances</a></p>`);
       return;
     }
-    document.title = `${product.name} ${product.category} | ICONIC Fragrance`;
+    document.title = `${product.name} ${sizeLabel(product)} | ICONIC Fragrance`;
     fillProduct(detail.find(".product-detail__content__header").parent(), product);
     const gallery = detail.find(".product-detail__slide-two");
     gallery.closest(".col-12").prop("hidden", !product.gallery.length);
@@ -334,7 +345,8 @@
     function render() {
       const terms = normalizeSearch(query).split(/\s+/).filter(Boolean);
       const matches = assortment.filter((product) => {
-        const searchable = normalizeSearch(`${product.name} ${product.category} ${product.size} ${product.size.replace(/ /g, "")} ${product.notes.join(" ")}`);
+        const collectionNames = product.collections.map((key) => collections[key]).join(" ");
+        const searchable = normalizeSearch(`${product.name} ${product.category} ${product.size} ${product.size.replace(/ /g, "")} ${collectionNames} ${product.notes.join(" ")}`);
         return terms.every((term) => searchable.includes(term));
       });
       if (sort) matches.sort(sorters.get(sort));
@@ -428,7 +440,7 @@
     orderForm.hidden = !cart.size;
     $("[data-empty-order]").prop("hidden", Boolean(cart.size));
     $("[data-order-items]").html([...cart].map(([product, qty]) =>
-      `<tr><td>${qty} × ${productLink(product)}</td><td>${money(product.price * qty)}</td></tr>`).join(""));
+      `<tr><td>${qty} × ${productLink(product)} <small>(${sizeLabel(product)})</small></td><td>${money(product.price * qty)}</td></tr>`).join(""));
     const shipping = deliveryFee === null
       ? "<tr><td>Delivery</td><td>Confirmed on WhatsApp</td></tr>"
       : `<tr><td>Delivery</td><td>${money(deliveryFee)}</td></tr><tr><td>Total</td><td>${money(total + deliveryFee)}</td></tr>`;
@@ -471,7 +483,7 @@
       const total = subtotal(cart);
       whatsapp([
         "Order request for ICONIC Fragrance", "",
-        ...[...cart].map(([product, qty]) => `${qty} × ${product.name} (${product.size}) — ${money(product.price * qty)}`),
+        ...[...cart].map(([product, qty]) => `${qty} × ${product.name} (${sizeLabel(product)}) — ${money(product.price * qty)}`),
         "", `Merchandise subtotal: ${money(total)}`,
         deliveryFee === null ? "Delivery fee: Please confirm" : `Delivery: ${money(deliveryFee)}\nTotal: ${money(total + deliveryFee)}`,
         `Payment: ${transfer ? "Online bank transfer" : "Cash on delivery"}`, "",
