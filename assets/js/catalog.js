@@ -13,6 +13,7 @@ window.ICONIC_COLLECTIONS = {
   oud: "Oud Collection",
   gifts: "Gift Sets",
   "best-sellers": "Best Sellers",
+  "pocket-perfumes": "Pocket Perfumes",
 };
 
 window.ICONIC_PRODUCTS = (() => {
@@ -48,7 +49,7 @@ window.ICONIC_PRODUCTS = (() => {
     ] },
   ];
 
-  return oils.map(({ name, studio = false, notes = [], collections = [] }) => {
+  const perfumeOils = oils.map(({ name, studio = false, notes = [], collections = [] }) => {
     const id = name.toLowerCase().replace(/ /g, "-");
     const gallery = studio
       ? [
@@ -72,4 +73,23 @@ window.ICONIC_PRODUCTS = (() => {
       })),
     };
   });
+
+  const pocketPerfumes = [
+    { id: "9-by-afnan", name: "9 by Afnan" },
+    { id: "bombshell", name: "Bombshell by Victoria’s Secret" },
+    { id: "invictus-aqua", name: "Invictus Aqua by Paco Rabanne" },
+    { id: "kirke", name: "Kirké by Tiziana Terenzi" },
+    { id: "the-most-wanted", name: "The Most Wanted by Azzaro" },
+  ].map((product) => ({
+    ...product,
+    category: "Pocket Perfume",
+    size: "10 ml",
+    price: 1490,
+    description: "A 10 ml eau de parfum spray in a pocket-sized bottle.",
+    notes: [],
+    collections: ["pocket-perfumes"],
+    gallery: [],
+  }));
+
+  return [...perfumeOils, ...pocketPerfumes];
 })();
