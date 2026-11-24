@@ -10,6 +10,7 @@
   const money = (amount) => `Rs. ${amount.toLocaleString("en-LK")}`;
   const productUrl = (product) => `product-detail.html?product=${product.id}`;
   const sizeLabel = (product) => `${product.category} · ${product.size}`;
+  const normalizeSearch = (text) => text.toLowerCase().normalize("NFD").replace(/\p{M}/gu, "").replace(/’/g, "'");
   const subtotal = (items) => [...items].reduce((sum, [product, qty]) => sum + product.price * qty, 0);
   const deliveryFee = Number.isSafeInteger(store.deliveryFee) && store.deliveryFee >= 0 ? store.deliveryFee : null;
   const bank = store.bankTransfer;
@@ -138,6 +139,44 @@
     renderCheckout(total);
   }
 
+  function addMissingShopCards() {
+    $(".shop-products__gird > .row, .shop-products__list > .row").each(function () {
+      const row = $(this);
+      const listed = new Set(row.find(".product-name").map(function () {
+        return this.textContent.trim().toLowerCase();
+      }).get());
+      const list = row.parent().hasClass("shop-products__list");
+      for (const product of products) {
+        if (listed.has(product.name.toLowerCase())) continue;
+        const photo = product.gallery[0];
+        const imageClass = list ? "product-list-thumb__image" : "product-thumb__image";
+        const photoLink = photo ? `<a class="${imageClass}" href="${productUrl(product)}"></a>` : "";
+        const name = `<a class="product-name" href="${productUrl(product)}">${product.name}</a>`;
+        const price = `<h5 class="product-price--main">${money(product.price)}</h5>`;
+        row.append(list
+          ? `<div class="col-12 col-sm-24 col-lg-6 px-1 px-lg-3"><div class="product-list">
+              <div class="product-list-thumb">${photoLink}</div>
+              <div class="product-list-content">
+                <div class="product-list-content__top">
+                  <div class="product-category__wrapper"><h5 class="product-category"></h5></div>
+                  ${name}
+                  <div class="product__price"><div class="product__price__wrapper">${price}</div></div>
+                </div>
+                <div class="product-list-content__bottom"><p class="product-description"></p></div>
+              </div>
+            </div></div>`
+          : `<div class="col-6 col-sm-6 col-md-4 col-lg-3 px-1 px-lg-3"><div class="product">
+              <div class="product-thumb">${photoLink}</div>
+              <div class="product-content">
+                <div class="product-content__header"><div class="product-category"></div></div>
+                ${name}
+                <div class="product-content__footer">${price}</div>
+              </div>
+            </div></div>`);
+      }
+    });
+  }
+
   function decorateCards() {
     $(".product, .product-list").each(function () {
       const card = $(this);
@@ -149,7 +188,7 @@
       if (product.gallery.length) photoLink.html(image(product.gallery[0]));
       card.find(".product-category").text(sizeLabel(product));
       card.find(".product-price--main").text(money(product.price));
-      card.find(".product-description").text(product.notes[0] || "A concentrated fragrance oil in a 10 ml bottle.");
+      card.find(".product-description").text(product.description || product.notes[0] || "A concentrated fragrance oil in a 10 ml bottle.");
       card.find(".product-content, .product-list-content").append(
         `<div class="store-actions">
           ${action("add", "Add to cart:", "fa-shopping-bag", product)}
@@ -176,7 +215,7 @@
       ${action("save", "Save to wishlist:", "fa-heart", product, "product-wl")}
     `);
     const description = content.find(".tab-content__item.-description");
-    description.find("p").text("Apply a small amount of this concentrated perfume oil to pulse points.");
+    description.find("p").text(product.description || "Apply a small amount of this concentrated perfume oil to pulse points.");
     if (product.notes.length) {
       if (description.length) {
         const notes = $("<dl>", { class: "store-notes" }).appendTo(description);
@@ -210,7 +249,9 @@
     if (product.gallery.length) {
       gallery.find(".product-detail__slide-two__big").html(product.gallery.map((photo, index) =>
         `<div class="slider__item">${image(photo, index === 0)}</div>`).join(""));
-      gallery.find(".product-detail__slide-two__small").html(product.gallery.map((photo) =>
+      const thumbnails = gallery.find(".product-detail__slide-two__small");
+      if (product.gallery.length === 1) thumbnails.remove();
+      else thumbnails.html(product.gallery.map((photo) =>
         `<div class="slider__item">${image(photo)}</div>`).join(""));
     } else {
       gallery.remove();
@@ -290,9 +331,9 @@
     }
 
     function render() {
-      const terms = query.toLowerCase().split(/\s+/).filter(Boolean);
+      const terms = normalizeSearch(query).split(/\s+/).filter(Boolean);
       const matches = assortment.filter((product) => {
-        const searchable = `${product.name} ${product.category} ${product.size} ${product.size.replace(/ /g, "")} ${product.notes.join(" ")}`.toLowerCase();
+        const searchable = normalizeSearch(`${product.name} ${product.category} ${product.size} ${product.size.replace(/ /g, "")} ${product.notes.join(" ")}`);
         return terms.every((term) => searchable.includes(term));
       });
       if (sort) matches.sort(sorters.get(sort));
@@ -601,6 +642,7 @@
     }
   });
 
+  addMissingShopCards();
   decorateCards();
   renderDetailPage();
   initShop();
