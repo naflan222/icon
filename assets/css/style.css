@@ -6528,6 +6528,12 @@ input:focus, textarea:focus, select:focus { border-color: var(--iconic-gold-soft
 [data-storefront] .shop-products__gird .product:hover .product-thumb__image img.studio-photo {
   transform: scale(1.32);
 }
+[data-storefront] .shop-products__gird .product:hover .product-thumb__image img.portrait-photo {
+  transform: none;
+}
+[data-storefront] .product-list-thumb__image img.portrait-photo {
+  object-fit: contain;
+}
 [data-storefront] :is(.product-detail__slide-two__big, .product-detail__slide-two__small, .product-detail__slide-one) img {
   aspect-ratio: 1;
   height: auto;

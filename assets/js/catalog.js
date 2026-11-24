@@ -88,7 +88,12 @@ window.ICONIC_PRODUCTS = (() => {
     description: "A 10 ml eau de parfum spray in a pocket-sized bottle.",
     notes: [],
     collections: ["pocket-perfumes"],
-    gallery: [],
+    gallery: [{
+      src: `${directory}pocket/${product.id}.webp`,
+      alt: `${product.name}, ICONIC 10 ml pocket perfume bottle`,
+      width: 1122,
+      height: 1402,
+    }],
   }));
 
   return [...perfumeOils, ...pocketPerfumes];

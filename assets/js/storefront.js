@@ -67,9 +67,10 @@
     renderSavedItems();
   }
 
-  function image(photo, eager = false) {
-    return `<img src="${photo.src}" alt="${photo.alt}" width="960" height="960"
-      class="studio-photo" loading="${eager ? "eager" : "lazy"}" decoding="async"/>`;
+  function image({ src, alt, width = 960, height = 960 }, eager = false) {
+    const photoClass = height > width ? "portrait-photo" : "studio-photo";
+    return `<img src="${src}" alt="${alt}" width="${width}" height="${height}"
+      class="${photoClass}" loading="${eager ? "eager" : "lazy"}" decoding="async"/>`;
   }
 
   function thumbnail(product, className) {
