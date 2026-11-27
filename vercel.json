@@ -2,17 +2,17 @@
   "redirects": [
     {
       "source": "/homepage2.html",
-      "destination": "/shop-fullwidth-4col.html?category=women",
+      "destination": "/shop-fullwidth-4col.html",
       "permanent": true
     },
     {
       "source": "/homepage3.html",
-      "destination": "/shop-fullwidth-4col.html?category=unisex",
+      "destination": "/shop-fullwidth-4col.html",
       "permanent": true
     },
     {
       "source": "/homepage4.html",
-      "destination": "/shop-fullwidth-4col.html?category=oud",
+      "destination": "/shop-fullwidth-4col.html?category=oil",
       "permanent": true
     },
     {
@@ -22,7 +22,7 @@
     },
     {
       "source": "/homepage6.html",
-      "destination": "/shop-fullwidth-4col.html?category=best-sellers",
+      "destination": "/shop-fullwidth-4col.html",
       "permanent": true
     }
   ]
