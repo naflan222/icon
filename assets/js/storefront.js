@@ -307,7 +307,10 @@
     const query = (url.searchParams.get("q") || "").trim();
     const requestedCategory = url.searchParams.get("category");
     const collections = window.ICONIC_COLLECTIONS;
-    const category = Object.hasOwn(collections, requestedCategory) ? requestedCategory : null;
+    const collectionKey = requestedCategory === "oud" ? "oil" : requestedCategory;
+    const category = Object.hasOwn(collections, collectionKey) ? collectionKey : null;
+    if (category) url.searchParams.set("category", category);
+    else url.searchParams.delete("category");
     const categoryName = category ? collections[category] : "";
     const assortment = category ? products.filter((product) => product.collections.includes(category)) : products;
     const sortControl = $('.shop-header select[name="sort"]');
