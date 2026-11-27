@@ -12,6 +12,9 @@
   const wishlistKey = "iconic_wishlist_v1";
   const shopUrl = "shop-fullwidth-4col.html";
   const money = (amount) => `Rs. ${amount.toLocaleString("en-LK")}`;
+  const priceMarkup = ({ price, regularPrice }) => regularPrice > price
+    ? `<span class="offer-prices"><span class="offer-price">${money(price)}</span> <del class="regular-price"><span class="sr-only">Original price </span>${money(regularPrice)}</del></span>`
+    : money(price);
   const productUrl = (product) => `product-detail.html?product=${product.id}`;
   const sizeLabel = ({ category, size }) => size ? `${category} · ${size}` : category;
   const normalizeSearch = (text) => text.toLowerCase().normalize("NFD").replace(/\p{M}/gu, "").replace(/’/g, "'");
@@ -122,13 +125,13 @@
     $("[data-cart-items]").html([...cart].map(([product, qty]) =>
       `<div class="cart-item">
         ${thumbnail(product, "cart-item__image")}
-        <div class="cart-item__info">${productLink(product)}<h5>${money(product.price)}</h5><p>Quantity: <span>${qty}</span></p></div>
+        <div class="cart-item__info">${productLink(product)}<h5>${priceMarkup(product)}</h5><p>Quantity: <span>${qty}</span></p></div>
         ${action("remove-cart", "Remove", "fa-times", product, "cart-item__remove")}
       </div>`).join("") || "<p>Your cart is empty.</p>");
     $(".cart__table__wrapper tbody").html([...cart].map(([product, qty]) =>
       `<tr><td><div class="cart-product">${thumbnail(product, "cart-product__image")}
         <div class="cart-product__content"><h5>${sizeLabel(product)}</h5>${productLink(product)}</div></div></td>
-        <td>${money(product.price)}</td>
+        <td>${priceMarkup(product)}</td>
         <td><div class="store-quantity">
           ${action("decrease-cart", "Decrease quantity of", "fa-minus", product)}
           <span>${qty}</span>
@@ -140,7 +143,7 @@
     $(".wishlist__table__wrapper tbody").html([...wishlist.keys()].map((product) =>
       `<tr><td><div class="wishlist-product">${thumbnail(product, "wishlist-product__image")}
         <div class="wishlist-product__content"><h5>${sizeLabel(product)}</h5>${productLink(product)}</div></div></td>
-        <td>${money(product.price)}</td><td>Confirm with shop</td>
+        <td>${priceMarkup(product)}</td><td>Confirm with shop</td>
         <td><button type="button" class="btn -dark" data-add="${product.id}">Add to cart</button>
         ${action("remove-wishlist", "Remove from wishlist", "fa-times", product)}</td></tr>`
     ).join("") || `<tr><td colspan="4">Your wishlist is empty. <a href="${shopUrl}">Continue shopping</a></td></tr>`);
@@ -208,7 +211,7 @@
         photoLink.attr("href", href).html(image(photo));
       }
       card.find(".product-category").text(sizeLabel(product));
-      card.find(".product-price--main").text(money(product.price));
+      card.find(".product-price--main").html(priceMarkup(product));
       card.find(".product-description").text(product.description || product.notes[0] || "A concentrated fragrance oil in a 10 ml bottle.");
       card.find(".product-content, .product-list-content").append(
         `<div class="store-actions">
@@ -224,7 +227,7 @@
     content.attr("data-product-id", product.id);
     content.find(".product-detail__content__header h5").text(sizeLabel(product));
     content.find(".product-detail__content__header h2").text(product.name);
-    content.children("h3").text(money(product.price));
+    content.children("h3").html(priceMarkup(product));
     content.find(".product-detail__colors, .product-detail__content__footer > ul").remove();
     content.find(".product-detail__controller").html(`
       <div class="quantity-controller -border -round" aria-label="Quantity">
