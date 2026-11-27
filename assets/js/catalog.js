@@ -27,20 +27,29 @@ window.ICONIC_PRODUCTS = (() => {
     width: 1122,
     height: 1402,
   }];
+  const oilPhotoViews = {
+    set: "bottle and box",
+    bottle: "bottle",
+    box: "box",
+    "box-front": "front of box",
+    "box-side": "side of box",
+    label: "back of box",
+  };
+  const standardOilPhotos = ["set", "bottle", "box", "label"];
   const oils = [
-    { name: "Golden Vault" },
-    { name: "Amber Throne" },
+    { name: "Golden Vault", photos: ["box", "bottle", "box-front", "box-side", "label"] },
+    { name: "Amber Throne", photos: [...standardOilPhotos, "box-front", "box-side"] },
     { name: "Victory Pulse", studio: true, notes: [
       "Bergamot, lemon, pineapple", "Lavender, cardamom, marine accord", "Tonka bean, amber, cedarwood",
     ] },
     { name: "Urban Rush", studio: true, notes: [
       "Bergamot, lemon, green apple", "Lavender, cardamom, aromatic spices", "Cedarwood, amber, soft musk",
     ] },
-    { name: "Clean Form" },
+    { name: "Clean Form", photos: [...standardOilPhotos, "box-side"] },
     { name: "Urban Drive", studio: true, notes: [
       "Green apple, grapefruit, mint", "Lavender, geranium, sage", "Cedarwood, patchouli, soft musk",
     ] },
-    { name: "Desert Gold" },
+    { name: "Desert Gold", photos: [...standardOilPhotos, "box-front"] },
     { name: "Wild Edge", studio: true, notes: [
       "Calabrian bergamot, pepper", "Lavender, geranium, Sichuan pepper", "Ambroxan, vetiver, cedarwood",
     ] },
@@ -58,16 +67,8 @@ window.ICONIC_PRODUCTS = (() => {
     ] },
   ];
 
-  const perfumeOils = oils.map(({ name, studio = false, notes = [], collections = [] }) => {
+  const perfumeOils = oils.map(({ name, studio = false, photos = studio ? standardOilPhotos : [], notes = [], collections = [] }) => {
     const id = name.toLowerCase().replace(/ /g, "-");
-    const gallery = studio
-      ? [
-        [`studio/${id}-set.webp`, "bottle and box"],
-        [`studio/${id}-bottle.webp`, "bottle"],
-        [`studio/${id}-box.webp`, "box"],
-        [`studio/${id}-label.webp`, "back of box"],
-      ]
-      : [];
     return {
       id,
       name,
@@ -76,9 +77,9 @@ window.ICONIC_PRODUCTS = (() => {
       category: "Perfume Oil",
       size: "10 ml",
       price: 2390,
-      gallery: gallery.map(([file, view]) => ({
-        src: directory + file,
-        alt: `${name} perfume oil, ${view}`,
+      gallery: photos.map((view) => ({
+        src: `${directory}studio/${id}-${view}.webp`,
+        alt: `${name} perfume oil, ${oilPhotoViews[view]}`,
       })),
     };
   });

@@ -195,9 +195,18 @@
       const product = cardProduct(card);
       if (!product) return;
       card.attr("data-product-id", product.id);
-      card.find(".product-name, .product-thumb__image, .product-list-thumb__image").attr("href", productUrl(product));
-      const photoLink = card.find(".product-thumb__image, .product-list-thumb__image");
-      if (product.gallery.length) photoLink.html(image(product.gallery[0]));
+      const href = productUrl(product);
+      card.find(".product-name").attr("href", href);
+      const photo = product.gallery[0];
+      if (photo) {
+        let photoLink = card.find(".product-thumb__image, .product-list-thumb__image");
+        if (!photoLink.length) {
+          const thumb = card.find(".product-thumb, .product-list-thumb").first();
+          const className = thumb.hasClass("product-list-thumb") ? "product-list-thumb__image" : "product-thumb__image";
+          photoLink = $("<a>", { class: className }).appendTo(thumb);
+        }
+        photoLink.attr("href", href).html(image(photo));
+      }
       card.find(".product-category").text(sizeLabel(product));
       card.find(".product-price--main").text(money(product.price));
       card.find(".product-description").text(product.description || product.notes[0] || "A concentrated fragrance oil in a 10 ml bottle.");
