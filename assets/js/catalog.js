@@ -72,7 +72,8 @@ window.ICONIC_PRODUCTS = (() => {
       collections: ["oil"],
       category: "Perfume Oil",
       size: "10 ml",
-      price: 2390,
+      price: 1690,
+      regularPrice: 2390,
       gallery: photos.map((view) => ({
         src: `${directory}studio/${id}-${view}.webp`,
         alt: `${name} perfume oil, ${oilPhotoViews[view]}`,

@@ -6520,6 +6520,14 @@ input:focus, textarea:focus, select:focus { border-color: var(--iconic-gold-soft
 [data-storefront] [data-cart-items] > p,
 [data-storefront] .store-search-result { margin-top: 1rem; }
 [data-storefront] .store-search-result a { text-decoration: underline; }
+[data-storefront] .offer-prices {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .1em .55em;
+}
+[data-storefront] .offer-price { color: #9b1c26; font-weight: 700; white-space: nowrap; }
+[data-storefront] .regular-price { color: #595959; font-size: .83em; font-weight: 400; white-space: nowrap; }
 [data-storefront] :is(.product-thumb__image, .product-list-thumb__image) { overflow: hidden; }
 [data-storefront] :is(.product-thumb__image, .product-list-thumb__image, .slider__item, .slider-item) img.studio-photo {
   transform: scale(1.3);
